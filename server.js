@@ -168,6 +168,8 @@ const IMAGE_TYPES = new Set(["image/jpeg", "image/png", "image/webp", "image/gif
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 8 * 1024 * 1024 } });
 
 const app = express();
+// Behind a hosting provider's proxy, so the per-visitor limit sees the real visitor address.
+app.set("trust proxy", 1);
 app.use(express.static(path.join(here, "public")));
 
 app.get("/api/config", (_req, res) => {
