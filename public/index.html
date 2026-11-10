@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RipOff Check: don't pay it until you check it</title>
+<meta name="description" content="Snap a photo of any quote or bill. See what each line means, what looks high, and what to say to get it lowered.">
+<style>
+  :root {
+    --ink: #14181f; --muted: #5b6472; --line: #e3e6eb; --bg: #f6f4ef; --card: #ffffff;
+    --brand: #0b6b4f; --brand-ink: #ffffff; --warn: #b45309; --warn-bg: #fff4e0;
+    --bad: #b42318; --bad-bg: #fdecea; --ok: #0b6b4f; --ok-bg: #e6f4ee;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px; }
+  header { padding: 18px 0; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 20px; }
+  .logo span { color: var(--brand); }
+  .pill { font-size: 13px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; background: var(--card); }
+  h1 { font-size: clamp(34px, 7vw, 54px); line-height: 1.05; letter-spacing: -0.03em; margin: 26px 0 14px; }
+  h1 em { font-style: normal; color: var(--brand); }
+  .lede { font-size: 20px; color: #2b323d; margin: 0 0 24px; max-width: 34em; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  .drop { display: block; border: 2px dashed #b9c0cb; border-radius: 14px; padding: 30px 18px; text-align: center; cursor: pointer; background: #fbfbf9; }
+  .drop.over { border-color: var(--brand); background: var(--ok-bg); }
+  .drop strong { display: block; font-size: 19px; margin-bottom: 4px; }
+  .drop small { color: var(--muted); }
+  input[type=text] { width: 100%; margin-top: 14px; padding: 13px 14px; font: inherit; border: 1px solid #c9ced6; border-radius: 10px; background: #fff; }
+  button { font: inherit; font-weight: 700; border: 0; border-radius: 12px; padding: 15px 20px; cursor: pointer; }
+  .primary { background: var(--brand); color: var(--brand-ink); width: 100%; margin-top: 14px; font-size: 18px; }
+  .primary:disabled { opacity: .55; cursor: default; }
+  .link { background: none; color: var(--brand); padding: 10px 0; text-decoration: underline; font-weight: 600; }
+  .fine { font-size: 14px; color: var(--muted); margin-top: 10px; }
+  .kinds { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 8px; padding: 0; list-style: none; }
+  .kinds li { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 13px; font-size: 15px; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 30px 0; }
+  .steps div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .steps b { display: block; color: var(--brand); font-size: 14px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
+  h2 { font-size: 26px; letter-spacing: -0.02em; margin: 34px 0 12px; }
+  .err { background: var(--bad-bg); color: var(--bad); border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
+  .banner { background: var(--warn-bg); color: #7a3d05; border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; font-size: 15px; }
+  .verdict { border-radius: 14px; padding: 18px; margin-bottom: 16px; }
+  .verdict h3 { margin: 0 0 6px; font-size: 24px; letter-spacing: -0.02em; }
+  .verdict p { margin: 0; }
+  .v-ok { background: var(--ok-bg); } .v-warn { background: var(--warn-bg); } .v-bad { background: var(--bad-bg); } .v-na { background: #eef0f3; }
+  .save { font-size: 19px; font-weight: 700; margin-top: 10px; }
+  .item { border-top: 1px solid var(--line); padding: 16px 0; }
+  .item:first-child { border-top: 0; }
+  .item-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+  .item-name { font-weight: 700; }
+  .price { font-weight: 700; white-space: nowrap; }
+  .plain { color: #2b323d; margin: 4px 0 6px; }
+  .range { font-size: 14px; color: var(--muted); }
+  .tag { display: inline-block; font-size: 13px; font-weight: 700; border-radius: 999px; padding: 2px 10px; margin-right: 8px; }
+  .t-ok { background: var(--ok-bg); color: var(--ok); } .t-high { background: var(--bad-bg); color: var(--bad); }
+  .t-ask { background: var(--warn-bg); color: var(--warn); } .t-maybe { background: var(--warn-bg); color: var(--warn); }
+  .note { font-size: 15px; margin-top: 6px; }
+  ol.q { padding-left: 22px; margin: 0; } ol.q li { margin-bottom: 8px; }
+  .script { background: #f3f6f4; border-left: 4px solid var(--brand); border-radius: 8px; padding: 14px 16px; white-space: pre-wrap; }
+  .copy { background: var(--ink); color: #fff; margin-top: 12px; padding: 11px 16px; font-size: 15px; }
+  ul.cav { color: var(--muted); font-size: 14px; padding-left: 20px; }
+  footer { color: var(--muted); font-size: 13px; padding: 34px 0 44px; }
+  .hidden { display: none; }
+  .spinner { display: inline-block; width: 18px; height: 18px; border: 3px solid #ffffff66; border-top-color: #fff; border-radius: 50%; animation: s 0.8s linear infinite; vertical-align: -3px; margin-right: 8px; }
+  @keyframes s { to { transform: rotate(360deg); } }
+  @media (max-width: 600px) { .steps { grid-template-columns: 1fr; } .lede { font-size: 18px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">RipOff<span>Check</span></div>
+    <div class="pill" id="mode">First check free</div>
+  </header>
+
+  <section id="home">
+    <h1>Don't pay it until you <em>check it.</em></h1>
+    <p class="lede">Snap a photo of any quote or bill. In about a minute you'll see what every line means, what looks high, and exactly what to say to get it lowered.</p>
+
+    <div class="card">
+      <label class="drop" id="drop" for="file">
+        <strong id="dropTitle">Add a photo or PDF of your quote or bill</strong>
+        <small id="dropSub">Tap to take a photo or choose a file. JPG, PNG or PDF, up to 8 MB.</small>
+      </label>
+      <input id="file" type="file" accept="image/jpeg,image/png,image/webp,application/pdf" class="hidden">
+      <input id="context" type="text" maxlength="300" placeholder="Optional: e.g. 2016 Honda Civic, Ohio">
+      <button class="primary" id="go" disabled>Check my quote</button>
+      <div id="error" class="err hidden" role="alert"></div>
+      <p class="fine">Your file is used only to produce this review. <button class="link" id="sampleBtn" type="button">See an example first</button></p>
+    </div>
+
+    <ul class="kinds" aria-label="Works with">
+      <li>Car repair</li><li>Home repair</li><li>Dentist</li><li>Vet</li><li>Medical bills</li><li>Phone &amp; internet</li><li>Moving</li><li>Roofing</li>
+    </ul>
+
+    <div class="steps">
+      <div><b>1. Snap</b>Take a photo of the quote before you say yes.</div>
+      <div><b>2. Understand</b>Every line explained in plain words, with typical price ranges.</div>
+      <div><b>3. Ask</b>Get the questions and a ready-made script to ask for a fairer price.</div>
+    </div>
+  </section>
+
+  <section id="result" class="hidden" aria-live="polite"></section>
+
+  <footer>
+    RipOff Check gives general information to help you ask better questions. Typical price ranges are estimates and vary by region and provider. It is not professional, legal, medical or financial advice, and it does not accuse any business of wrongdoing.
+  </footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+let chosen = null;
+let config = { live: false, paymentLink: "" };
+
+fetch("/api/config").then((r) => r.json()).then((c) => {
+  config = c;
+  if (!c.live) $("mode").textContent = "Preview mode";
+}).catch(() => {});
+
+function showError(msg) { const e = $("error"); e.textContent = msg; e.classList.remove("hidden"); }
+function clearError() { $("error").classList.add("hidden"); }
+
+function setFile(f) {
+  if (!f) return;
+  chosen = f;
+  $("dropTitle").textContent = f.name;
+  $("dropSub").textContent = "Ready. Tap to choose a different file.";
+  $("go").disabled = false;
+  clearError();
+}
+$("file").addEventListener("change", (e) => setFile(e.target.files[0]));
+const drop = $("drop");
+["dragenter", "dragover"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); }));
+["dragleave", "drop"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.remove("over"); }));
+drop.addEventListener("drop", (e) => setFile(e.dataTransfer.files[0]));
+
+$("go").addEventListener("click", async () => {
+  if (!chosen) return;
+  clearError();
+  const btn = $("go");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Reading your document…';
+  try {
+    const body = new FormData();
+    body.append("file", chosen);
+    body.append("context", $("context").value);
+    const r = await fetch("/api/check", { method: "POST", body });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || "Something went wrong. Please try again.");
+    render(data);
+  } catch (err) {
+    showError(err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Check my quote";
+  }
+});
+
+$("sampleBtn").addEventListener("click", async () => {
+  const r = await fetch("/api/sample");
+  render(await r.json());
+});
+
+const money = (sym, n) => (n === null || n === undefined ? "" : sym + Number(n).toLocaleString(undefined, { minimumFractionDigits: n % 1 ? 2 : 0, maximumFractionDigits: 2 }));
+const VERDICT = {
+  looks_fair: ["v-ok", "This looks fair"],
+  some_concerns: ["v-warn", "A few things to question"],
+  likely_high: ["v-bad", "This looks high"],
+  cannot_tell: ["v-na", "We couldn't judge this one"],
+};
+const FLAG = {
+  ok: ["t-ok", "Looks normal"],
+  high: ["t-high", "Looks high"],
+  ask_about: ["t-ask", "Ask about this"],
+  may_be_unnecessary: ["t-maybe", "May not be needed"],
+};
+
+function render({ sample, result: r }) {
+  const sym = r.currency_symbol || "$";
+  const [vClass, vTitle] = VERDICT[r.verdict] || VERDICT.cannot_tell;
+  const savings = r.possible_savings_high
+    ? `<div class="save">Possible saving if you ask: ${esc(money(sym, r.possible_savings_low ?? 0))} to ${esc(money(sym, r.possible_savings_high))}</div>`
+    : "";
+  const items = (r.line_items || []).map((it) => {
+    const [tClass, tLabel] = FLAG[it.flag] || FLAG.ok;
+    const range = it.typical_low !== null && it.typical_high !== null
+      ? `<span class="range">Typical: ${esc(money(sym, it.typical_low))} to ${esc(money(sym, it.typical_high))}</span>` : "";
+    return `<div class="item">
+      <div class="item-top"><span class="item-name">${esc(it.name)}</span><span class="price">${esc(money(sym, it.quoted_price))}</span></div>
+      <p class="plain">${esc(it.plain_english)}</p>
+      <span class="tag ${tClass}">${tLabel}</span>${range}
+      ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
+    </div>`;
+  }).join("");
+  const questions = (r.questions_to_ask || []).map((q) => `<li>${esc(q)}</li>`).join("");
+  const caveats = (r.caveats || []).map((c) => `<li>${esc(c)}</li>`).join("");
+
+  $("result").innerHTML = `
+    ${sample ? '<div class="banner"><b>Example only.</b> This is a made-up estimate that shows what a check looks like.</div>' : ""}
+    <div class="verdict ${vClass}">
+      <h3>${vTitle}</h3>
+      <p>${esc(r.summary)}</p>
+      ${r.total_quoted !== null ? `<p style="margin-top:8px"><b>Total on the document:</b> ${esc(money(sym, r.total_quoted))}</p>` : ""}
+      ${savings}
+    </div>
+    ${items ? `<h2>Line by line</h2><div class="card">${items}</div>` : ""}
+    ${questions ? `<h2>Questions to ask</h2><div class="card"><ol class="q">${questions}</ol></div>` : ""}
+    ${r.what_to_say ? `<h2>What to say</h2><div class="card"><div class="script" id="script">${esc(r.what_to_say)}</div><button class="copy" id="copyBtn" type="button">Copy this message</button></div>` : ""}
+    ${caveats ? `<h2>Keep in mind</h2><ul class="cav">${caveats}</ul>` : ""}
+    <button class="primary" id="again" type="button">Check another quote</button>`;
+
+  $("home").classList.add("hidden");
+  $("result").classList.remove("hidden");
+  window.scrollTo({ top: 0 });
+
+  const copyBtn = $("copyBtn");
+  if (copyBtn) copyBtn.addEventListener("click", async () => {
+    try { await navigator.clipboard.writeText(r.what_to_say); copyBtn.textContent = "Copied"; }
+    catch { copyBtn.textContent = "Select the text above to copy"; }
+  });
+  $("again").addEventListener("click", () => {
+    $("result").classList.add("hidden");
+    $("home").classList.remove("hidden");
+    window.scrollTo({ top: 0 });
+  });
+}
+</script>
+</body>
+</html>
