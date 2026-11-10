@@ -1,0 +1,14 @@
+{
+  "name": "get-seen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
+    "express": "^4.21.0",
+    "zod": "^4.0.0"
+  }
+}

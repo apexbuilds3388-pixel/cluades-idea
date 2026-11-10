@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Seen: put what you offer in front of people who want it</title>
+<meta name="description" content="Tell us what you can make, do or sell. Get the places buyers already look, a ready-to-paste listing for each, and a first-week plan.">
+<style>
+  :root { --ink: #151a22; --muted: #5c6675; --line: #e2e6ec; --bg: #f5f6f8; --card: #fff; --brand: #3a36db; --brand-soft: #ecebff; --ok: #0b6b4f; --ok-bg: #e6f4ee; --warn: #b45309; --warn-bg: #fff4e0; --bad: #b42318; --bad-bg: #fdecea; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 18px; }
+  header { padding: 18px 0; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; }
+  .logo span { color: var(--brand); }
+  .pill { font-size: 13px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; background: var(--card); }
+  h1 { font-size: clamp(32px, 6.6vw, 50px); line-height: 1.06; letter-spacing: -0.03em; margin: 24px 0 14px; }
+  h1 em { font-style: normal; color: var(--brand); }
+  .lede { font-size: 19px; color: #2c3440; margin: 0 0 22px; max-width: 34em; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+  label { display: block; font-weight: 700; margin-bottom: 6px; }
+  .hint { font-weight: 400; color: var(--muted); font-size: 15px; }
+  textarea, input[type=text] { width: 100%; font: inherit; padding: 13px 14px; border: 1px solid #c8ced7; border-radius: 10px; background: #fff; }
+  textarea { min-height: 120px; resize: vertical; }
+  .field { margin-bottom: 16px; }
+  button { font: inherit; font-weight: 700; border: 0; border-radius: 12px; padding: 15px 20px; cursor: pointer; }
+  .primary { background: var(--brand); color: #fff; width: 100%; font-size: 18px; }
+  .primary:disabled { opacity: .6; cursor: default; }
+  .link { background: none; color: var(--brand); padding: 10px 0; text-decoration: underline; font-weight: 600; }
+  .fine { font-size: 14px; color: var(--muted); margin: 10px 0 0; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0; }
+  .steps div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+  .steps b { display: block; color: var(--brand); font-size: 14px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
+  h2 { font-size: 25px; letter-spacing: -0.02em; margin: 34px 0 12px; }
+  .err { background: var(--bad-bg); color: var(--bad); border-radius: 10px; padding: 12px 14px; margin-top: 14px; }
+  .banner { background: var(--warn-bg); color: #7a3d05; border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; font-size: 15px; }
+  .offer { background: var(--brand-soft); border-radius: 14px; padding: 18px; }
+  .offer h3 { margin: 0 0 6px; font-size: 22px; letter-spacing: -0.02em; }
+  .offer p { margin: 0; }
+  .place { margin-bottom: 16px; }
+  .place-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .place h3 { margin: 0; font-size: 21px; }
+  .num { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--brand); color: #fff; font-size: 15px; margin-right: 8px; }
+  .tag { display: inline-block; font-size: 13px; font-weight: 700; border-radius: 999px; padding: 2px 10px; }
+  .d-easy { background: var(--ok-bg); color: var(--ok); } .d-medium { background: var(--warn-bg); color: var(--warn); } .d-hard { background: var(--bad-bg); color: var(--bad); }
+  .meta { color: var(--muted); font-size: 15px; margin: 8px 0 0; }
+  .sub { font-size: 14px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 18px 0 6px; }
+  .listing { background: #f6f7fb; border-left: 4px solid var(--brand); border-radius: 8px; padding: 14px 16px; }
+  .listing .t { font-weight: 700; margin-bottom: 8px; }
+  .listing .b { white-space: pre-wrap; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .chips span { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-size: 14px; }
+  .copy { background: var(--ink); color: #fff; margin-top: 12px; padding: 10px 15px; font-size: 15px; }
+  ul.s, ol.s { margin: 0; padding-left: 22px; } ul.s li, ol.s li { margin-bottom: 6px; }
+  .week { display: grid; grid-template-columns: 76px 1fr; gap: 6px 12px; }
+  .week b { color: var(--brand); }
+  ul.warn { color: #3a4350; font-size: 16px; padding-left: 20px; margin: 0; }
+  footer { color: var(--muted); font-size: 13px; padding: 30px 0 44px; }
+  .hidden { display: none; }
+  .spinner { display: inline-block; width: 18px; height: 18px; border: 3px solid #ffffff66; border-top-color: #fff; border-radius: 50%; animation: s .8s linear infinite; vertical-align: -3px; margin-right: 8px; }
+  @keyframes s { to { transform: rotate(360deg); } }
+  @media (max-width: 600px) { .steps { grid-template-columns: 1fr; } .week { grid-template-columns: 62px 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">Get<span>Seen</span></div>
+    <div class="pill" id="mode">Free to try</div>
+  </header>
+
+  <section id="home">
+    <h1>Good at something, but <em>nobody knows?</em></h1>
+    <p class="lede">Tell us what you can make, do or sell. We'll show you where people are already looking for exactly that, write your listing for each place, and give you a first-week plan.</p>
+
+    <div class="card">
+      <div class="field">
+        <label for="offer">What can you offer or sell? <span class="hint">Plain words are fine.</span></label>
+        <textarea id="offer" maxlength="1500" placeholder="Example: I fix and tune up bikes from my garage. I've done it for friends for years and I'm free evenings and weekends."></textarea>
+      </div>
+      <div class="field">
+        <label for="location">Where are you? <span class="hint">Town and country, or "online only".</span></label>
+        <input id="location" type="text" maxlength="120" placeholder="Example: Sonora, California">
+      </div>
+      <button class="primary" id="go">Show me where to get seen</button>
+      <div id="error" class="err hidden" role="alert"></div>
+      <p class="fine">No sign-up needed. <button class="link" id="sampleBtn" type="button">See an example first</button></p>
+    </div>
+
+    <div class="steps">
+      <div><b>1. Where</b>The places buyers already search for what you offer, easiest first.</div>
+      <div><b>2. What to post</b>A listing written for each place, ready to paste.</div>
+      <div><b>3. What to do</b>A day-by-day plan for your first week.</div>
+    </div>
+  </section>
+
+  <section id="result" class="hidden" aria-live="polite"></section>
+
+  <footer>
+    Get Seen helps you list what you offer in the right places. It can't guarantee sales, and each site sets its own fees and rules, so check them before you post.
+  </footer>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+fetch("/api/config").then((r) => r.json()).then((c) => { if (!c.live) $("mode").textContent = "Preview mode"; }).catch(() => {});
+
+function showError(msg) { const e = $("error"); e.textContent = msg; e.classList.remove("hidden"); }
+
+$("go").addEventListener("click", async () => {
+  $("error").classList.add("hidden");
+  const offer = $("offer").value.trim();
+  if (offer.length < 10) return showError("Tell us a little more about what you can offer or sell.");
+  const btn = $("go");
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span>Finding your buyers…';
+  try {
+    const r = await fetch("/api/plan", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ offer, location: $("location").value }),
+    });
+    const data = await r.json();
+    if (!r.ok) throw new Error(data.error || "Something went wrong. Please try again.");
+    render(data);
+  } catch (err) {
+    showError(err.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Show me where to get seen";
+  }
+});
+
+$("sampleBtn").addEventListener("click", async () => {
+  const r = await fetch("/api/sample");
+  render(await r.json());
+});
+
+const DIFF = { easy: ["d-easy", "Easy to start"], medium: ["d-medium", "Some setup"], hard: ["d-hard", "Harder for beginners"] };
+
+function render({ sample, result: r }) {
+  const el = $("result");
+  const back = '<button class="primary" id="again" type="button" style="margin-top:22px">Start over</button>';
+
+  if (!r.understood) {
+    el.innerHTML = `
+      <div class="offer"><h3>Tell us a bit more</h3><p>We need a clearer idea of what you offer before we can find your buyers.</p></div>
+      <h2>A few questions</h2>
+      <div class="card"><ul class="s">${(r.clarifying_questions || []).map((q) => `<li>${esc(q)}</li>`).join("")}</ul></div>
+      ${back}`;
+  } else {
+    const places = (r.places || []).map((p, i) => {
+      const [dClass, dLabel] = DIFF[p.beginner_difficulty] || DIFF.medium;
+      return `<div class="card place">
+        <div class="place-top"><h3><span class="num">${i + 1}</span>${esc(p.name)}</h3><span class="tag ${dClass}">${dLabel}</span></div>
+        <p class="meta">${esc(p.why_here)}</p>
+        <p class="meta"><b>Cost to start:</b> ${esc(p.cost_to_start)} &nbsp;·&nbsp; <b>Starting price:</b> ${esc(p.suggested_price)}</p>
+        <div class="sub">Your listing</div>
+        <div class="listing">
+          <div class="t">${esc(p.listing_title)}</div>
+          <div class="b">${esc(p.listing_body)}</div>
+          ${(p.tags || []).length ? `<div class="chips">${p.tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>` : ""}
+        </div>
+        <button class="copy" type="button" data-copy="${i}">Copy this listing</button>
+        <div class="sub">To get shown here</div>
+        <ol class="s">${(p.first_steps || []).map((s) => `<li>${esc(s)}</li>`).join("")}</ol>
+      </div>`;
+    }).join("");
+    const week = (r.first_week || []).map((d) => `<b>${esc(d.day)}</b><span>${esc(d.action)}</span>`).join("");
+    const warn = (r.watch_out || []).map((w) => `<li>${esc(w)}</li>`).join("");
+
+    el.innerHTML = `
+      ${sample ? '<div class="banner"><b>Example only.</b> This is a made-up seller, to show what a plan looks like.</div>' : ""}
+      <div class="offer"><h3>${esc(r.offer_one_line)}</h3><p><b>Who needs it:</b> ${esc(r.ideal_buyer)}</p></div>
+      <h2>Where your buyers already are</h2>
+      ${places}
+      ${week ? `<h2>Your first week</h2><div class="card"><div class="week">${week}</div></div>` : ""}
+      ${warn ? `<h2>Be honest with yourself about</h2><div class="card"><ul class="warn">${warn}</ul></div>` : ""}
+      ${back}`;
+
+    el.querySelectorAll("[data-copy]").forEach((btn) => btn.addEventListener("click", async () => {
+      const p = r.places[Number(btn.dataset.copy)];
+      const text = `${p.listing_title}\n\n${p.listing_body}`;
+      try { await navigator.clipboard.writeText(text); btn.textContent = "Copied"; }
+      catch { btn.textContent = "Select the text above to copy"; }
+    }));
+  }
+
+  $("home").classList.add("hidden");
+  el.classList.remove("hidden");
+  window.scrollTo({ top: 0 });
+  $("again").addEventListener("click", () => {
+    el.classList.add("hidden");
+    $("home").classList.remove("hidden");
+    window.scrollTo({ top: 0 });
+  });
+}
+</script>
+</body>
+</html>
