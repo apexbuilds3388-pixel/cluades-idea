@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ridgeline Plumbing | Same-day plumbers in Maple Hollow</title>
+<meta name="description" content="Licensed local plumbers for leaks, drains, water heaters and emergencies. Upfront prices and same-day visits.">
+<style>
+  :root { --navy: #0e2238; --navy2: #16324f; --accent: #f26b21; --ink: #17212b; --muted: #5d6b79; --line: #e4e8ed; --soft: #f4f7fa; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: var(--ink); font: 17px/1.6 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  .top { background: var(--navy); color: #fff; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; gap: 12px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; }
+  .brand svg { width: 30px; height: 30px; }
+  .links { display: flex; gap: 22px; align-items: center; font-size: 15px; }
+  .links a { text-decoration: none; opacity: .85; }
+  .btn { display: inline-block; background: var(--accent); color: #fff; font-weight: 700; text-decoration: none; padding: 13px 20px; border-radius: 10px; }
+  .btn.ghost { background: transparent; border: 2px solid #ffffff55; }
+  .hero { padding: 56px 0 72px; display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
+  .eyebrow { display: inline-block; background: #ffffff1a; border-radius: 999px; padding: 5px 13px; font-size: 14px; margin-bottom: 16px; }
+  h1 { font-size: clamp(36px, 5.4vw, 58px); line-height: 1.04; letter-spacing: -0.03em; margin: 0 0 16px; }
+  h1 span { color: var(--accent); }
+  .hero p { font-size: 19px; opacity: .88; margin: 0 0 26px; max-width: 30em; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .card { background: #fff; color: var(--ink); border-radius: 16px; padding: 24px; box-shadow: 0 20px 50px #00000040; }
+  .card h2 { margin: 0 0 4px; font-size: 22px; }
+  .card p { font-size: 15px; color: var(--muted); margin: 0 0 14px; opacity: 1; }
+  label { display: block; font-size: 14px; font-weight: 600; margin: 10px 0 4px; }
+  input, select, textarea { width: 100%; font: inherit; padding: 11px 12px; border: 1px solid #c8d0d9; border-radius: 9px; background: #fff; }
+  textarea { min-height: 70px; resize: vertical; }
+  .card .btn { width: 100%; text-align: center; border: 0; cursor: pointer; margin-top: 14px; font-size: 17px; }
+  .trust { background: var(--navy2); color: #fff; }
+  .trust .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-top: 20px; padding-bottom: 20px; font-size: 15px; }
+  .trust b { display: block; font-size: 17px; }
+  section { padding: 68px 0; }
+  h2.title { font-size: clamp(28px, 4vw, 38px); letter-spacing: -0.02em; margin: 0 0 8px; }
+  .sub { color: var(--muted); margin: 0 0 30px; max-width: 38em; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .svc { border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+  .svc svg { width: 34px; height: 34px; color: var(--accent); }
+  .svc h3 { margin: 12px 0 6px; font-size: 19px; }
+  .svc p { margin: 0; color: var(--muted); font-size: 16px; }
+  .alt { background: var(--soft); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: s; }
+  .step { background: #fff; border-radius: 14px; padding: 24px; border: 1px solid var(--line); }
+  .step::before { counter-increment: s; content: counter(s); display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 800; margin-bottom: 12px; }
+  .step h3 { margin: 0 0 6px; font-size: 19px; }
+  .step p { margin: 0; color: var(--muted); font-size: 16px; }
+  .areas { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
+  .areas li { border: 1px solid var(--line); border-radius: 999px; padding: 7px 15px; }
+  .band { background: var(--accent); color: #fff; border-radius: 18px; padding: 34px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .band h2 { margin: 0; font-size: 28px; letter-spacing: -0.02em; }
+  .band p { margin: 4px 0 0; opacity: .92; }
+  .band .btn { background: #fff; color: var(--accent); font-size: 20px; }
+  footer { background: var(--navy); color: #ffffffb3; font-size: 14px; padding: 28px 0; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; }
+  @media (max-width: 820px) {
+    .links a:not(.btn) { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 36px 0 48px; }
+    .trust .wrap { grid-template-columns: repeat(2, 1fr); }
+    .grid, .steps { grid-template-columns: 1fr; }
+    section { padding: 48px 0; }
+    .band { padding: 26px; }
+  }
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 3c5 6.5 9 11 9 16a9 9 0 1 1-18 0c0-5 4-9.500 9-16Z" fill="#f26b21"/><path d="M12 20a4 4 0 0 0 4 4" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+        Ridgeline Plumbing
+      </a>
+      <div class="links">
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#areas">Areas</a>
+        <a class="btn" href="tel:5550142">Call (555) 0142</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div>
+        <span class="eyebrow">Licensed &amp; insured · Open 7 days</span>
+        <h1>A plumber at your door <span>today.</span></h1>
+        <p>Leaks, blocked drains, water heaters and emergencies across Maple Hollow. You get the price before we start, and it doesn't change.</p>
+        <div class="cta">
+          <a class="btn" href="tel:5550142">Call (555) 0142</a>
+          <a class="btn ghost" href="#quote">Get a free quote</a>
+        </div>
+      </div>
+      <form class="card" id="quote" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks! We\'ll call you shortly.';">
+        <h2>Get a free quote</h2>
+        <p>Tell us what's wrong and we'll call you back within the hour.</p>
+        <label for="n">Your name</label>
+        <input id="n" autocomplete="name" required>
+        <label for="p">Phone number</label>
+        <input id="p" type="tel" autocomplete="tel" required>
+        <label for="j">What do you need?</label>
+        <select id="j">
+          <option>Leak or burst pipe</option>
+          <option>Blocked drain or toilet</option>
+          <option>Water heater</option>
+          <option>New tap, toilet or fixture</option>
+          <option>Something else</option>
+        </select>
+        <button class="btn" type="submit">Request my quote</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="trust">
+  <div class="wrap">
+    <div><b>Same-day visits</b>Booked before noon</div>
+    <div><b>Upfront prices</b>Agreed before work starts</div>
+    <div><b>12-month guarantee</b>On every repair</div>
+    <div><b>Emergency line</b>Evenings and weekends</div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <h2 class="title">What we fix</h2>
+    <p class="sub">Most jobs are finished in a single visit, with parts carried on the van.</p>
+    <div class="grid">
+      <div class="svc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3.500 4.500 6 7.500 6 11a6 6 0 0 1-12 0c0-3.500 2.500-6.500 6-11Z"/></svg>
+        <h3>Leaks &amp; burst pipes</h3>
+        <p>Found fast and repaired properly, with the water back on before we leave.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>
+        <h3>Blocked drains</h3>
+        <p>Sinks, showers, toilets and outside drains cleared, with a camera check if it keeps coming back.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="3"/><path d="M10 8h4M12 13v3"/></svg>
+        <h3>Water heaters</h3>
+        <p>Repairs and replacements for tank and tankless heaters, usually the same day.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h9a4 4 0 0 1 4 4v1M5 8v6M18 19v1"/></svg>
+        <h3>Taps, toilets &amp; fixtures</h3>
+        <p>Dripping taps, running toilets and new fittings installed neatly.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10l8-6 8 6v10"/><path d="M10 20v-6h4v6"/></svg>
+        <h3>Kitchen &amp; bathroom plumbing</h3>
+        <p>Pipework for remodels, dishwashers, washing machines and showers.</p>
+      </div>
+      <div class="svc">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v10M12 17v.5"/><circle cx="12" cy="12" r="9"/></svg>
+        <h3>Emergencies</h3>
+        <p>Flooding or no water? Call the emergency line and we'll talk you through shutting it off.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="alt">
+  <div class="wrap">
+    <h2 class="title">How it works</h2>
+    <p class="sub">No call centre and no surprises on the bill.</p>
+    <div class="steps">
+      <div class="step"><h3>Call or send the form</h3><p>Tell us what's happening. We'll give you a time window that suits you.</p></div>
+      <div class="step"><h3>Get your price first</h3><p>We look at the problem and give you a fixed price before any work begins.</p></div>
+      <div class="step"><h3>Fixed and guaranteed</h3><p>We do the repair, clean up, and back it with a 12-month guarantee.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="areas">
+  <div class="wrap">
+    <h2 class="title">Where we work</h2>
+    <p class="sub">Based in Maple Hollow and covering the towns within about 20 minutes.</p>
+    <ul class="areas">
+      <li>Maple Hollow</li><li>Cedar Ridge</li><li>Stonebrook</li><li>Pine Landing</li><li>Fairmont Heights</li><li>Lakeview</li><li>Old Mill</li>
+    </ul>
+    <div class="band" style="margin-top:40px">
+      <div><h2>Water where it shouldn't be?</h2><p>Call now and speak to a plumber, not a machine.</p></div>
+      <a class="btn" href="tel:5550142">(555) 0142</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© Ridgeline Plumbing · Licence #000000 · Maple Hollow</span>
+    <span>Sample website for a fictional business</span>
+  </div>
+</footer>
+</body>
+</html>
