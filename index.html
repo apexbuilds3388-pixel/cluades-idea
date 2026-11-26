@@ -395,6 +395,7 @@ details p{color:var(--mute);padding:0 50px 18px 0}
 form{background:#fff;color:var(--ink);border-radius:26px;padding:clamp(22px,3vw,34px);display:grid;gap:14px;box-shadow:0 40px 80px -40px rgba(0,0,0,.5)}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 label{display:grid;gap:6px;font-weight:600;font-size:14px}
+.fld{display:grid;gap:6px;font-weight:600;font-size:14px}.fld label{display:block}
 input,select,textarea{font:16px Inter,sans-serif;padding:13px 14px;border-radius:12px;border:1.5px solid #d6dae8;background:#fbfbfe;color:var(--ink);width:100%}
 input:focus,select:focus,textarea:focus{border-color:var(--cobalt);outline:none;background:#fff}
 textarea{min-height:92px;resize:vertical}
@@ -866,7 +867,7 @@ html{scroll-behavior:auto}
           <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email"></label>
         </div>
         <div class="two">
-          <label for="f-type">Type of business<select id="f-type" name="type"><option>Home services</option><option>Restaurant or food</option><option>Salon or beauty</option><option>Auto</option><option>Health or dental</option><option>Retail</option><option>Other</option></select></label>
+          <div class="fld"><label for="f-type">Type of business</label><select id="f-type" name="type"><option>Home services</option><option>Restaurant or food</option><option>Salon or beauty</option><option>Auto</option><option>Health or dental</option><option>Retail</option><option>Other</option></select></div>
           <label for="f-site">Current website<input id="f-site" name="current_site" placeholder="If you have one"></label>
         </div>
         <label for="f-ref">Who referred you?<input id="f-ref" name="referred_by" placeholder="Optional: their name or business"></label>
