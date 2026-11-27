@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luna Bloom Salon | Cuts, Color & Styling (Demo by Avyo)</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Demo website by Avyo for a made-up hair salon.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%233b1f2b'/%3E%3Cpath d='M40 16a18 18 0 1 0 0 32 14 14 0 1 1 0-32z' fill='%23e3b48f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--plum:#3b1f2b;--plum2:#55303f;--blush:#fbeee9;--rose:#f3d9d0;--gold:#c99a6b;--ink:#2a1a21;--mute:#76626a;--line:#ecd8d0;--pad:max(5vw,18px)}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{margin:0;background:var(--blush);color:var(--ink);font:17px/1.65 Jost,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(56px,8vw,112px)}
+h2{font-size:clamp(42px,5.5vw,72px)}
+h3{font-size:30px}
+h1 em,h2 em{font-style:italic;color:var(--gold)}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+.band{padding:clamp(64px,8vw,116px) 0}
+.kick{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px}
+.lead{font-size:clamp(17px,1.5vw,19px);color:var(--mute);max-width:54ch;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 30px;border-radius:999px;font:600 15px Jost,sans-serif;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;border:1.5px solid var(--plum);background:var(--plum);color:#fff;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{background:var(--plum2);transform:translateY(-2px)}
+.btn.line{background:transparent;color:var(--plum)}
+.btn.line:hover{background:var(--plum);color:#fff}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.demo-bar{background:#0c1020;color:#fff;font:600 14px/1.4 Arial,sans-serif;text-align:center;padding:9px 16px}
+.demo-bar a{color:#9fb0ff;font-weight:700;margin-left:8px}
+header{position:sticky;top:0;z-index:30;background:rgba(251,238,233,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:30px;height:76px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:italic 600 30px "Cormorant Garamond",serif;color:var(--plum)}
+.logo svg{width:34px;height:34px}
+nav{margin-left:auto;display:flex;gap:28px;font-size:14px;letter-spacing:.16em;text-transform:uppercase}
+nav a{text-decoration:none}
+nav a:hover{color:var(--gold)}
+header .btn{min-height:44px;padding:0 22px;font-size:13px}
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:50px;align-items:center;padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(50px,7vw,100px)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.arch{position:relative;aspect-ratio:4/5;border-radius:999px 999px 26px 26px;overflow:hidden;background:linear-gradient(160deg,#e9b9a4,#c98a73 45%,#7b4458);box-shadow:0 40px 80px -40px rgba(59,31,43,.6)}
+.arch svg{position:absolute;inset:0;width:100%;height:100%}
+.strand{fill:none;stroke-linecap:round;stroke-dasharray:900;stroke-dashoffset:900;animation:draw 3.4s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.sway{transform-origin:50% 0;animation:sway 7s ease-in-out 3.4s infinite}
+@keyframes sway{50%{transform:rotate(1.6deg) translateX(6px)}}
+.chip{position:absolute;background:#fff;border-radius:999px;padding:10px 18px;font-weight:600;font-size:14px;letter-spacing:.06em;box-shadow:0 16px 30px -16px rgba(59,31,43,.5);animation:float 6s ease-in-out infinite}
+.chip b{color:var(--gold)}
+@keyframes float{50%{transform:translateY(-10px)}}
+.hero-art{position:relative}
+.c1{left:-8%;top:18%}.c2{right:-6%;top:44%;animation-delay:-2s}.c3{left:2%;bottom:10%;animation-delay:-4s}
+/* marquee */
+.marq{background:var(--plum);color:var(--rose);overflow:hidden;padding:20px 0}
+.mtrack{display:flex;width:max-content;animation:m 40s linear infinite}
+.mtrack span{font:italic 500 34px "Cormorant Garamond",serif;padding:0 26px;white-space:nowrap}
+.mtrack span::after{content:"✦";color:var(--gold);font-style:normal;font-size:18px;margin-left:52px;vertical-align:middle}
+@keyframes m{to{transform:translateX(-50%)}}
+/* menu */
+.menu-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px}
+.mtabs{display:flex;gap:6px;flex-wrap:wrap;background:#fff;border-radius:999px;padding:6px}
+.mtab{min-height:44px;padding:0 20px;border-radius:999px;border:0;background:transparent;font:500 15px Jost;letter-spacing:.08em;color:var(--mute);cursor:pointer}
+.mtab[aria-selected=true]{background:var(--plum);color:#fff}
+.mlist{margin-top:34px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 50px}
+.mi{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;padding:22px 0;border-bottom:1px solid var(--line);animation:in .45s both}
+@keyframes in{from{opacity:0;transform:translateY(8px)}}
+.mi b{font:600 26px "Cormorant Garamond",serif}
+.mi span{font:600 22px "Cormorant Garamond",serif;color:var(--gold);white-space:nowrap}
+.mi p{grid-column:1/-1;color:var(--mute);font-size:15px}
+.sample{font-size:13px;color:var(--mute);margin-top:16px}
+/* booking */
+.book{background:var(--rose)}
+.book .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:50px;align-items:start}
+.widget{background:#fff;border-radius:26px;padding:clamp(20px,3vw,34px);box-shadow:0 30px 60px -36px rgba(59,31,43,.5)}
+.wstep{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:0 0 10px}
+.wstep:not(:first-child){margin-top:22px}
+select{font:16px Jost,sans-serif;width:100%;min-height:50px;padding:0 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--blush);color:var(--ink)}
+.days,.times{display:grid;gap:8px}
+.days{grid-template-columns:repeat(7,minmax(0,1fr))}
+.times{grid-template-columns:repeat(4,minmax(0,1fr))}
+.slot{min-height:48px;border-radius:12px;border:1.5px solid var(--line);background:#fff;font:500 14px Jost;color:var(--ink);cursor:pointer;line-height:1.15;padding:6px 2px;transition:all .2s}
+.slot small{display:block;font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+.slot:hover{border-color:var(--gold)}
+.slot[aria-pressed=true]{background:var(--plum);border-color:var(--plum);color:#fff}
+.slot[aria-pressed=true] small{color:var(--rose)}
+.slot:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.summary{margin-top:24px;padding:16px 18px;border-radius:14px;background:var(--blush);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px}
+.summary p{font-weight:500}
+.summary .btn{min-height:48px}
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:44px}
+.member{text-align:center}
+.av{aspect-ratio:1;border-radius:50%;overflow:hidden;margin:0 auto 18px;width:min(240px,80%);transition:transform .4s}
+.member:hover .av{transform:scale(1.04) rotate(-2deg)}
+.av svg{width:100%;height:100%;display:block}
+.member p{color:var(--mute);font-size:15px;margin-top:6px}
+.member .tag{display:inline-block;margin-top:10px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:600}
+/* looks */
+.looks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:260px;gap:14px;margin-top:44px}
+.look{border-radius:20px;overflow:hidden;position:relative}
+.look:nth-child(1){grid-row:span 2}
+.look:nth-child(4){grid-column:span 2}
+.look svg{width:100%;height:100%;display:block;transition:transform .7s}
+.look:hover svg{transform:scale(1.06)}
+.look span{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.92);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;letter-spacing:.08em}
+/* visit */
+.visit{background:var(--plum);color:#fff}
+.visit .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:50px}
+.visit .lead{color:#e8cfd6}
+.hours{width:100%;border-collapse:collapse;margin-top:10px}
+.hours td{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.hours td:last-child{text-align:right;white-space:nowrap}
+.hours tr.today td{color:var(--gold);font-weight:600}
+details{border-bottom:1px solid rgba(255,255,255,.18)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;padding:18px 0;font:600 24px "Cormorant Garamond",serif}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:#e8cfd6;padding-bottom:18px}
+.visit .btn{background:var(--gold);border-color:var(--gold);color:var(--plum)}
+footer{background:#2a141e;color:#d9c2ca;padding:40px 0 100px;font-size:14px;letter-spacing:.04em}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+footer .logo{color:#fff}
+.sticky{display:none}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s}
+.js .rv.in{opacity:1;transform:none}
+@media(max-width:980px){nav{display:none}header .btn{margin-left:auto}.hero .wrap,.book .wrap,.visit .wrap{grid-template-columns:minmax(0,1fr)}.hero-art{max-width:460px;margin:0 auto;width:100%}.mlist{grid-template-columns:minmax(0,1fr)}.looks{grid-template-columns:repeat(2,minmax(0,1fr))}.look:nth-child(4){grid-column:span 1}}
+@media(max-width:600px){.team{grid-template-columns:minmax(0,1fr)}.days{grid-template-columns:repeat(4,minmax(0,1fr))}.times{grid-template-columns:repeat(3,minmax(0,1fr))}.looks{grid-auto-rows:180px}.c1{left:0}.c2{right:0}.sticky{display:grid;grid-template-columns:1.4fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px;background:var(--blush);border-top:1px solid var(--line)}.sticky .btn{min-height:50px;padding:0 10px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.strand{stroke-dashoffset:0}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar">Demo design by Avyo for a made-up business. Not a real salon.<a href="/" target="_top">Back to Avyo</a></div>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#3b1f2b"/><path d="M21 7a10 10 0 1 0 0 20 8 8 0 1 1 0-20z" fill="#e3b48f"/></svg>Luna Bloom</a>
+    <nav aria-label="Main"><a href="#menu">Services</a><a href="#book">Book</a><a href="#team">Stylists</a><a href="#visit">Visit</a></nav>
+    <a class="btn" href="#book">Book now</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kick">Hair salon · Central Valley</p>
+      <h1>Hair that feels like <em>you.</em></h1>
+      <p class="lead">Lived-in color, precision cuts and silk presses, done by stylists who listen first. Pick a time below and walk out feeling like yourself, only better.</p>
+      <div class="ctas"><a class="btn" href="#book">Book an appointment</a><a class="btn line" href="#menu">See services</a></div>
+    </div>
+    <div class="hero-art">
+      <div class="arch">
+        <svg viewBox="0 0 400 500" aria-hidden="true">
+          <circle cx="200" cy="170" r="70" fill="#f4cdb8"/>
+          <path d="M120 500c0-90 36-150 80-150s80 60 80 150z" fill="#3b1f2b"/>
+          <g class="sway" id="strands"></g>
+        </svg>
+      </div>
+      <span class="chip c1">Balayage <b>✦</b></span>
+      <span class="chip c2">Silk press <b>✦</b></span>
+      <span class="chip c3">Curly cuts <b>✦</b></span>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="mtrack" id="mtrack"></div></div>
+
+<section class="band" id="menu">
+  <div class="wrap">
+    <div class="menu-head rv">
+      <div><p class="kick">The menu</p><h2>Services & <em>pricing.</em></h2></div>
+      <div class="mtabs" role="tablist" aria-label="Service categories" id="mtabs"></div>
+    </div>
+    <div class="mlist" id="mlist"></div>
+    <p class="sample">Sample prices for this demo site. Final price depends on hair length and thickness.</p>
+  </div>
+</section>
+
+<section class="band book" id="book">
+  <div class="wrap">
+    <div class="rv">
+      <p class="kick">Book online</p>
+      <h2>Pick your <em>time.</em></h2>
+      <p class="lead">Choose a service, a day and a time. We'll text you to confirm, usually within a few hours during salon hours.</p>
+    </div>
+    <div class="widget rv">
+      <p class="wstep">1 · Service</p>
+      <select id="bsvc" aria-label="Service"></select>
+      <p class="wstep">2 · Day</p>
+      <div class="days" id="days"></div>
+      <p class="wstep">3 · Time</p>
+      <div class="times" id="times"></div>
+      <div class="summary"><p id="sum">Pick a day and time.</p><a class="btn" id="req" href="sms:+12095550126">Request this time</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="team">
+  <div class="wrap">
+    <div class="rv"><p class="kick">Our stylists</p><h2>The hands behind the <em>hair.</em></h2></div>
+    <div class="team" id="teamgrid"></div>
+  </div>
+</section>
+
+<section class="band" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv"><p class="kick">Looks we love</p><h2>Fresh out of the <em>chair.</em></h2></div>
+    <div class="looks" id="looks"></div>
+  </div>
+</section>
+
+<section class="band visit" id="visit">
+  <div class="wrap">
+    <div class="rv">
+      <p class="kick">Visit</p>
+      <h2>Come see <em>us.</em></h2>
+      <p class="lead">Central Valley, CA. Free parking out front. Call or text <a href="tel:+12095550126" style="color:#fff">(209) 555-0126</a>.</p>
+      <table class="hours" id="hours"><tbody></tbody></table>
+      <div class="ctas"><a class="btn" href="#book">Book now</a></div>
+    </div>
+    <div class="rv">
+      <details open><summary>Do you take walk-ins?</summary><p>When a chair is open, yes. Booking ahead is the best way to get the time you want.</p></details>
+      <details><summary>What if I need to cancel?</summary><p>Just text us at least 24 hours ahead and we'll move you to another time.</p></details>
+      <details><summary>Do you do consultations?</summary><p>Yes, free 15-minute color consultations. Pick "Consultation" when you book.</p></details>
+      <details><summary>Do you work with curly hair?</summary><p>Absolutely. Ask for a curly cut and we'll cut it dry, curl by curl.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span class="logo">Luna Bloom</span><span>(209) 555-0126 · Central Valley, CA</span><span>Website by Avyo (demo)</span></div></footer>
+<div class="sticky"><a class="btn" href="#book">Book now</a><a class="btn line" href="tel:+12095550126">Call</a></div>
+
+<script>
+{
+if (window.self !== window.top) document.getElementById('demo-bar').style.display = 'none';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.add('js');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* hero strands */
+const cols = ['#2a141e', '#3b1f2b', '#5a2f3f', '#7b4458', '#9b5a5a'];
+let st = '';
+for (let i = 0; i < 16; i++) {
+  const x = 140 + i * 8, sw = 6 + (i % 3) * 3, bend = (i % 2 ? 1 : -1) * (20 + i * 2);
+  st += `<path class="strand" d="M${200 + (i - 8) * 5} 110 C ${x - 40} 160, ${x + bend} 300, ${x - 10 + (i - 8) * 6} 470" stroke="${cols[i % cols.length]}" stroke-width="${sw}" style="animation-delay:${i * 0.08}s"/>`;
+}
+document.getElementById('strands').innerHTML = st;
+/* marquee */
+const words = ['Balayage', 'Silk press', 'Gloss', 'Curly cuts', 'Blowouts', 'Highlights', 'Color correction', 'Bridal'];
+const half = words.map(w => `<span>${w}</span>`).join('');
+document.getElementById('mtrack').innerHTML = half + half;
+/* menu */
+const menu = {
+  Cuts: [['Women’s cut & style', '$65', 'Consultation, wash, cut and blowout.'], ['Men’s cut', '$35', 'Clipper or scissor cut with a hot towel finish.'], ['Curly cut', '$80', 'Cut dry, curl by curl, with a styling lesson.'], ['Kids (under 12)', '$25', 'Quick, gentle and patient.']],
+  Color: [['Balayage', 'from $180', 'Hand-painted, soft and low-maintenance.'], ['Full highlights', 'from $150', 'Bright, even lift from root to end.'], ['Root touch-up', '$85', 'Gray coverage or color refresh at the roots.'], ['Gloss', '$55', 'Shine and tone between color visits.']],
+  Styling: [['Blowout', '$45', 'Smooth, bouncy and built to last.'], ['Silk press', '$95', 'Sleek and shiny with heat protection.'], ['Updo', '$85', 'Weddings, proms and big nights.'], ['Bridal trial', '$90', 'Try your wedding look before the day.']],
+  Treatments: [['Deep conditioning', '$35', 'Moisture for dry, color-treated hair.'], ['Bond repair', '$45', 'Strengthens hair after color or heat.'], ['Scalp treatment', '$40', 'Exfoliate and soothe the scalp.'], ['Consultation', 'Free', '15 minutes to plan your color.']]
+};
+const mtabs = document.getElementById('mtabs'), mlist = document.getElementById('mlist');
+const showCat = c => {
+  [...mtabs.children].forEach(b => b.setAttribute('aria-selected', b.textContent === c));
+  mlist.innerHTML = menu[c].map((m, i) => `<div class="mi" style="animation-delay:${i * .06}s"><b>${esc(m[0])}</b><span>${esc(m[1])}</span><p>${esc(m[2])}</p></div>`).join('');
+};
+mtabs.innerHTML = Object.keys(menu).map(c => `<button class="mtab" role="tab">${c}</button>`).join('');
+[...mtabs.children].forEach(b => b.addEventListener('click', () => showCat(b.textContent)));
+showCat('Cuts');
+/* booking */
+const bsvc = document.getElementById('bsvc');
+bsvc.innerHTML = Object.entries(menu).map(([c, l]) => `<optgroup label="${c}">${l.map(m => `<option>${esc(m[0])}</option>`).join('')}</optgroup>`).join('');
+const daysEl = document.getElementById('days'), timesEl = document.getElementById('times'), sum = document.getElementById('sum'), req = document.getElementById('req');
+const dn = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+let pick = { day: null, time: null };
+const today = new Date();
+const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(today); d.setDate(today.getDate() + i + 1); return d; });
+daysEl.innerHTML = days.map((d, i) => `<button type="button" class="slot" aria-pressed="false" data-i="${i}" ${d.getDay() === 1 ? 'disabled' : ''}><small>${dn[d.getDay()]}</small>${d.getDate()}</button>`).join('');
+const times = ['9:00', '10:30', '12:00', '1:30', '3:00', '4:30', '6:00', '7:00'];
+const update = () => {
+  if (pick.day !== null && pick.time) {
+    const d = days[pick.day], label = `${bsvc.value}, ${dn[d.getDay()]} ${d.getMonth() + 1}/${d.getDate()} at ${pick.time}`;
+    sum.textContent = label;
+    req.href = 'sms:+12095550126?&body=' + encodeURIComponent('Hi! I’d like to book: ' + label);
+  } else sum.textContent = pick.day === null ? 'Pick a day and time.' : 'Now pick a time.';
+};
+const drawTimes = () => {
+  if (pick.day === null) { timesEl.innerHTML = times.map(t => `<button type="button" class="slot" disabled>${t}</button>`).join(''); return; }
+  let seed = pick.day * 31 + 7; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
+  timesEl.innerHTML = times.map(t => `<button type="button" class="slot" aria-pressed="${pick.time === t}" ${rnd() < .3 ? 'disabled' : ''}>${t}</button>`).join('');
+  [...timesEl.children].forEach(b => b.addEventListener('click', () => { pick.time = b.textContent; drawTimes(); update(); }));
+};
+[...daysEl.children].forEach(b => b.addEventListener('click', () => { pick.day = +b.dataset.i; pick.time = null; [...daysEl.children].forEach(x => x.setAttribute('aria-pressed', x === b)); drawTimes(); update(); }));
+bsvc.addEventListener('change', update);
+drawTimes();
+/* team */
+const team = [['Ava', 'Color specialist', 'Balayage and blondes', '#e9b9a4', '#7b4458'], ['Marisol', 'Curl expert', 'Curly cuts and silk presses', '#d9a58a', '#2a141e'], ['Jordan', 'Cuts & barbering', 'Sharp men’s cuts and fades', '#f0c9b2', '#5a2f3f']];
+document.getElementById('teamgrid').innerHTML = team.map((t, i) => `<div class="member rv"><div class="av"><svg viewBox="0 0 200 200"><rect width="200" height="200" fill="${['#f3d9d0', '#e7c7bd', '#f6e2da'][i]}"/><path d="M40 200c0-50 26-80 60-80s60 30 60 80z" fill="${t[4]}"/><circle cx="100" cy="88" r="38" fill="${t[3]}"/>${i === 1 ? '<circle cx="100" cy="66" r="44" fill="#2a141e" opacity=".95"/><circle cx="100" cy="92" r="32" fill="' + t[3] + '"/>' : i === 0 ? '<path d="M58 92c0-40 20-58 42-58s44 18 44 58c-10-24-26-30-44-30s-32 8-42 30z" fill="#c98a5a"/>' : '<path d="M64 80c4-26 18-36 36-36s34 10 36 36c-10-10-22-14-36-14s-26 4-36 14z" fill="#2a141e"/>'}</svg></div><h3>${t[0]}</h3><p>${t[1]}</p><span class="tag">${t[2]}</span></div>`).join('');
+/* looks */
+const looks = [['Copper balayage', ['#b8582f', '#e39a5f', '#f4cda0']], ['Blonde gloss', ['#e9cf8f', '#f7e7b9', '#c9a35a']], ['Silk press', ['#2a141e', '#4a2a35', '#6b3a48']], ['Rose gold', ['#d68c8c', '#f0b9a8', '#b5627a']], ['Curly cut', ['#3b1f12', '#6b3a20', '#8a5230']], ['Ash brown', ['#6e5b52', '#8f7a6e', '#b3a092']]];
+document.getElementById('looks').innerHTML = looks.map((l, i) => {
+  let s = `<svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><rect width="300" height="300" fill="${l[1][0]}"/>`;
+  for (let k = 0; k < 14; k++) s += `<path d="M${-40 + k * 26} -10 C ${40 + k * 18} 100, ${-20 + k * 30} 200, ${30 + k * 22} 320" fill="none" stroke="${l[1][k % 3]}" stroke-width="${18 + (k % 4) * 6}" stroke-linecap="round" opacity=".9"/>`;
+  return `<div class="look rv">${s}</svg><span>${l[0]}</span></div>`;
+}).join('');
+/* hours */
+const hrs = [['Monday', 'Closed'], ['Tuesday', '9 AM – 7 PM'], ['Wednesday', '9 AM – 7 PM'], ['Thursday', '9 AM – 8 PM'], ['Friday', '9 AM – 8 PM'], ['Saturday', '8 AM – 5 PM'], ['Sunday', '10 AM – 4 PM']];
+const di = (today.getDay() + 6) % 7;
+document.querySelector('#hours tbody').innerHTML = hrs.map((h, i) => `<tr class="${i === di ? 'today' : ''}"><td>${h[0]}${i === di ? ' (today)' : ''}</td><td>${h[1]}</td></tr>`).join('');
+/* reveal */
+if (reduce || !('IntersectionObserver' in window)) document.querySelectorAll('.rv').forEach(e => e.classList.add('in'));
+else { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 }); document.querySelectorAll('.rv').forEach(e => io.observe(e)); }
+}
+</script>
+</body>
+</html>

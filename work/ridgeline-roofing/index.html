@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ridgeline Roofing | Roof Repair & Replacement (Demo by Avyo)</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Demo website by Avyo for a made-up roofing company.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231b1d1f'/%3E%3Cpath d='M10 40 32 18l22 22' fill='none' stroke='%23e0602f' stroke-width='8' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1b1d1f;--ink2:#2b2e31;--terra:#d9542b;--terra2:#b8431f;--sand:#f5efe7;--sky:#cfe9ff;--mute:#5c5f63;--line:#e6ddd1;--pad:max(5vw,18px)}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:#fff;color:var(--ink);font:17px/1.6 Barlow,Arial,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:.005em;margin:0;text-wrap:balance}
+h1{font-size:clamp(52px,7vw,96px)}
+h2{font-size:clamp(40px,5vw,68px)}
+h3{font-size:28px;line-height:1}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+.band{padding:clamp(64px,8vw,110px) 0}
+.kick{font:700 15px Barlow,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);margin-bottom:12px}
+.lead{font-size:clamp(18px,1.6vw,20px);color:var(--mute);max-width:58ch;margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 28px;border-radius:6px;font:800 17px Barlow,sans-serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:2px solid var(--terra);background:var(--terra);color:#fff;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{background:var(--terra2);border-color:var(--terra2);transform:translateY(-2px)}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:#fff}
+.btn svg{width:20px;height:20px}
+:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.demo-bar{background:#0c1020;color:#fff;font:600 14px/1.4 Arial,sans-serif;text-align:center;padding:9px 16px}
+.demo-bar a{color:#9fb0ff;font-weight:700;margin-left:8px}
+.util{background:var(--ink);color:#e9e4dc;font-size:14px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.util .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:9px;padding-bottom:9px}
+.util a{color:#fff;text-decoration:none}
+header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:28px;height:78px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:46px;height:46px}
+.logo b{font:800 26px/0.9 "Barlow Condensed",sans-serif;letter-spacing:.02em;text-transform:uppercase}
+.logo small{display:block;font:700 11px Barlow;letter-spacing:.24em;color:var(--terra)}
+nav{margin-left:auto;display:flex;gap:24px;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.06em}
+nav a{text-decoration:none}
+nav a:hover{color:var(--terra)}
+header .btn{min-height:46px;padding:0 18px;font-size:15px}
+/* hero */
+.hero{background:linear-gradient(180deg,var(--sky) 0%,#eaf5ff 55%,#fff 100%);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:center;padding-top:clamp(40px,6vw,80px);padding-bottom:0}
+.hero h1 span{color:var(--terra)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 clamp(40px,6vw,80px);padding:0;list-style:none}
+.chips li{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-weight:700;font-size:15px}
+.chips svg{width:18px;height:18px;color:var(--terra)}
+.scene{align-self:end;position:relative}
+.scene svg{display:block;width:100%;height:auto}
+.sh{opacity:0;transform:translateY(-30px);animation:lay .5s cubic-bezier(.2,.9,.3,1.2) forwards}
+@keyframes lay{to{opacity:1;transform:none}}
+.sun{animation:rise 2.4s ease-out both}
+@keyframes rise{from{transform:translateY(60px);opacity:0}}
+.bird{animation:fly 14s linear infinite}
+@keyframes fly{from{transform:translateX(-120px)}to{transform:translateX(820px)}}
+.badge{position:absolute;left:4%;top:12%;background:#fff;border-radius:14px;padding:12px 16px;box-shadow:0 20px 40px -18px rgba(0,0,0,.35);display:flex;gap:10px;align-items:center;font-weight:700;font-size:15px;animation:pop .6s 2.2s both}
+.badge i{width:36px;height:36px;border-radius:10px;background:var(--terra);display:grid;place-items:center;color:#fff;font-style:normal}
+@keyframes pop{from{opacity:0;transform:scale(.8) translateY(10px)}}
+/* strip */
+.strip{background:var(--ink);color:#fff}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;padding-top:26px;padding-bottom:26px}
+.strip div{display:flex;gap:12px;align-items:center;font:700 19px "Barlow Condensed";text-transform:uppercase;letter-spacing:.04em}
+.strip svg{width:30px;height:30px;color:var(--terra);flex:none}
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:44px}
+.svc{border:1px solid var(--line);border-radius:12px;padding:28px;background:#fff;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.svc::before{content:"";position:absolute;left:0;top:0;height:5px;width:0;background:var(--terra);transition:width .35s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(0,0,0,.4)}
+.svc:hover::before{width:100%}
+.svc .ic{width:54px;height:54px;border-radius:10px;background:var(--sand);display:grid;place-items:center;color:var(--terra);margin-bottom:18px}
+.svc .ic svg{width:28px;height:28px}
+.svc p{color:var(--mute);margin-top:10px}
+/* before/after */
+.ba{background:var(--sand)}
+.ba .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:center}
+.compare{position:relative;border-radius:14px;overflow:hidden;aspect-ratio:16/10;box-shadow:0 30px 60px -30px rgba(0,0,0,.45);user-select:none}
+.compare svg{position:absolute;inset:0;width:100%;height:100%}
+.compare .after{clip-path:inset(0 0 0 50%)}
+.compare .handle{position:absolute;top:0;bottom:0;left:50%;width:4px;background:#fff;transform:translateX(-2px);pointer-events:none}
+.compare .handle::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;color:var(--ink);box-shadow:0 6px 18px rgba(0,0,0,.3)}
+.compare .lab{position:absolute;top:14px;background:rgba(0,0,0,.65);color:#fff;font:700 13px Barlow;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:6px}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.note{font-size:14px;color:var(--mute);margin-top:12px}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:44px;counter-reset:s}
+.steps li{list-style:none;border-top:4px solid var(--ink);padding-top:18px;counter-increment:s}
+.steps li::before{content:"0" counter(s);display:block;font:800 64px/.9 "Barlow Condensed";color:var(--terra);margin-bottom:10px}
+.steps b{font:800 24px "Barlow Condensed";text-transform:uppercase;display:block;margin-bottom:6px}
+.steps p{color:var(--mute)}
+.steps{padding:0}
+/* materials */
+.mat{background:var(--ink);color:#fff}
+.mat .lead{color:#c9c4bc}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
+.tab{min-height:46px;padding:0 20px;border-radius:6px;border:2px solid #44484d;background:transparent;color:#fff;font:800 16px Barlow;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.tab[aria-selected=true]{background:var(--terra);border-color:var(--terra)}
+.mpanel{display:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;margin-top:30px}
+.mpanel.on{display:grid;animation:fade .5s both}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}}
+.swatch{border-radius:12px;overflow:hidden;aspect-ratio:16/10}
+.swatch svg{width:100%;height:100%;display:block}
+.mpanel ul{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.mpanel li{display:flex;gap:10px;color:#e2ddd5}
+.mpanel li::before{content:"";width:10px;height:10px;margin-top:9px;background:var(--terra);flex:none;transform:rotate(45deg)}
+/* area + faq */
+.area{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.towns{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;padding:0;list-style:none}
+.towns li{border:2px solid var(--ink);padding:7px 13px;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.towns li:first-child{background:var(--terra);border-color:var(--terra);color:#fff}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:18px;align-items:center;padding:20px 0;font-weight:700;font-size:19px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:800 28px "Barlow Condensed";color:var(--terra);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--mute);padding:0 30px 20px 0}
+/* contact */
+.contact{background:var(--terra);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.contact .lead{color:#ffe6dc}
+.contact .btn{background:#fff;color:var(--terra);border-color:#fff}
+.contact .btn:hover{background:#ffeae3}
+.box{background:#fff;color:var(--ink);border-radius:14px;padding:clamp(22px,3vw,34px);display:grid;gap:14px;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.box h3{font-size:36px}
+.box label{display:grid;gap:6px;font-weight:700;font-size:15px}
+.box input,.box select{font:16px Barlow,sans-serif;min-height:50px;padding:10px 14px;border:1.5px solid #b9b0a5;border-radius:6px;background:#fff;color:var(--ink)}
+.box .btn{background:var(--terra);color:#fff;border-color:var(--terra);width:100%}
+.box .hint{font-size:14px;color:var(--mute)}
+footer{background:var(--ink);color:#cfc9c1;padding:40px 0 100px;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+footer .logo b{color:#fff}
+.sticky{display:none}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+.js .rv.in{opacity:1;transform:none}
+@media(max-width:980px){nav{display:none}header .btn{margin-left:auto}.hero .wrap,.ba .wrap,.area,.contact .wrap,.mpanel{grid-template-columns:minmax(0,1fr)}.svc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.strip .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.util span{display:none}.svc-grid,.steps,.strip .wrap{grid-template-columns:minmax(0,1fr)}.logo small{display:none}.sticky{display:grid;grid-template-columns:1.4fr 1fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px;background:#fff;border-top:1px solid var(--line)}.sticky .btn{min-height:50px;padding:0 10px;font-size:15px}.badge{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.sh{opacity:1;transform:none}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="ck" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.2 4.2L19 7"/></symbol>
+<symbol id="ph" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></symbol>
+<symbol id="drop" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M12 3s6 7 6 11a6 6 0 01-12 0c0-4 6-11 6-11z"/></symbol>
+<symbol id="house" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M3 11l9-7 9 7M5 9.5V20h14V9.5"/></symbol>
+<symbol id="bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+<symbol id="gut" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M3 7h18v4a3 3 0 01-3 3H6a3 3 0 01-3-3zM17 14v7"/></symbol>
+<symbol id="cam" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M3 8a2 2 0 012-2h2.5l1.5-2h6l1.5 2H19a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><circle cx="12" cy="13" r="3.6"/></g></symbol>
+<symbol id="wrench" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M14.5 4a5 5 0 00-6 6L3 15.5 5.5 18 11 12.5a5 5 0 006-6l-3 3-2.5-.5-.5-2.5z"/></symbol>
+<symbol id="doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M6 2.5h8l4 4v15H6z"/><path d="M9 12h6M9 16h6" stroke-linecap="round"/></g></symbol>
+<symbol id="broom" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M14 3l-3 9M7 12h8l2 9H5z"/></symbol>
+</svg>
+
+<div class="demo-bar" id="demo-bar">Demo design by Avyo for a made-up business. Not a real company.<a href="/" target="_top">Back to Avyo</a></div>
+<div class="util"><div class="wrap"><span>Free roof inspections with photos</span><span>Serving the Central Valley</span><a href="tel:+12095550148">(209) 555-0148</a></div></div>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Ridgeline Roofing home"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="10" fill="#1b1d1f"/><path d="M8 30 24 14l16 16" fill="none" stroke="#d9542b" stroke-width="6" stroke-linejoin="round"/><path d="M14 34h20" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg><span><b>Ridgeline</b><small>Roofing Co.</small></span></a>
+    <nav aria-label="Main"><a href="#services">Services</a><a href="#before-after">Before & after</a><a href="#materials">Materials</a><a href="#faq">FAQ</a></nav>
+    <a class="btn" href="#estimate">Free inspection</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="kick">Repairs · Replacements · Storm damage</p>
+      <h1>Roof leaks fixed <span>right the first time.</span></h1>
+      <p class="lead">We climb up, take photos of everything we find, and show you exactly what your roof needs before you spend a dollar. Clear written estimates, clean job sites.</p>
+      <div class="ctas"><a class="btn" href="#estimate">Book a free inspection</a><a class="btn line" href="tel:+12095550148"><svg><use href="#ph"/></svg>(209) 555-0148</a></div>
+      <ul class="chips">
+        <li><svg><use href="#cam"/></svg>Photos of every problem</li>
+        <li><svg><use href="#doc"/></svg>Written estimates</li>
+        <li><svg><use href="#broom"/></svg>Clean-up included</li>
+      </ul>
+    </div>
+    <div class="scene">
+      <div class="badge"><i>✓</i>Inspection photos sent</div>
+      <svg viewBox="0 0 700 470" aria-label="Illustration of a house getting a new roof">
+        <circle class="sun" cx="560" cy="110" r="58" fill="#ffd36b"/>
+        <g class="bird" fill="none" stroke="#1b1d1f" stroke-width="3" stroke-linecap="round"><path d="M80 80q10-10 20 0q10-10 20 0"/><path d="M130 105q7-7 14 0q7-7 14 0"/></g>
+        <path d="M0 470V420q170-40 350-20t350 10v60z" fill="#9fc98a"/>
+        <rect x="120" y="250" width="440" height="190" fill="#efe4d6"/>
+        <rect x="120" y="250" width="440" height="14" fill="#d8cbbb"/>
+        <rect x="170" y="300" width="80" height="70" rx="4" fill="#bfe3ff" stroke="#1b1d1f" stroke-width="6"/>
+        <rect x="430" y="300" width="80" height="70" rx="4" fill="#bfe3ff" stroke="#1b1d1f" stroke-width="6"/>
+        <rect x="305" y="320" width="70" height="120" rx="4" fill="#d9542b"/>
+        <circle cx="362" cy="382" r="5" fill="#ffd36b"/>
+        <g id="shingles"></g>
+        <path d="M80 262 340 96l260 166" fill="none" stroke="#1b1d1f" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
+        <rect x="455" y="120" width="44" height="70" fill="#8a3a1f"/><rect x="449" y="112" width="56" height="14" fill="#1b1d1f"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="strip"><div class="wrap">
+  <div><svg><use href="#drop"/></svg>Leak repair</div>
+  <div><svg><use href="#house"/></svg>Full replacement</div>
+  <div><svg><use href="#bolt"/></svg>Storm damage</div>
+  <div><svg><use href="#gut"/></svg>Gutters & flashing</div>
+</div></div>
+
+<section class="band" id="services">
+  <div class="wrap">
+    <div class="rv"><p class="kick">What we do</p><h2>Every part of your roof, handled.</h2><p class="lead">Whether it's one drip in the hallway or a whole roof that's done, we tell you straight what it needs and what it doesn't.</p></div>
+    <div class="svc-grid">
+      <div class="svc rv"><div class="ic"><svg><use href="#drop"/></svg></div><h3>Leak repair</h3><p>We find where the water is really getting in, which is often not right above the stain, and fix the source.</p></div>
+      <div class="svc rv"><div class="ic"><svg><use href="#house"/></svg></div><h3>Roof replacement</h3><p>Tear-off, new underlayment and new roof, with the old material hauled away the same day.</p></div>
+      <div class="svc rv"><div class="ic"><svg><use href="#bolt"/></svg></div><h3>Storm damage</h3><p>Missing shingles or wind damage? We document it with photos you can share with your insurance company.</p></div>
+      <div class="svc rv"><div class="ic"><svg><use href="#gut"/></svg></div><h3>Gutters & flashing</h3><p>Rusted flashing and clogged gutters cause a lot of leaks. We seal, replace and clear them.</p></div>
+      <div class="svc rv"><div class="ic"><svg><use href="#cam"/></svg></div><h3>Free inspections</h3><p>A full look at your roof with photos of anything worn, cracked or loose, sent straight to your phone.</p></div>
+      <div class="svc rv"><div class="ic"><svg><use href="#wrench"/></svg></div><h3>Yearly tune-ups</h3><p>Small fixes before the rainy season, so little problems don't turn into ceiling stains.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band ba" id="before-after">
+  <div class="wrap">
+    <div class="rv"><p class="kick">Before & after</p><h2>Drag to see the difference.</h2><p class="lead">Worn, curling shingles on the left. A clean new roof with sealed flashing on the right. Slide the handle to compare.</p><p class="note">Illustration for this demo site.</p></div>
+    <div class="compare rv" id="compare">
+      <svg viewBox="0 0 640 400" aria-label="Old worn roof" id="before"></svg>
+      <svg viewBox="0 0 640 400" class="after" id="after" aria-label="New roof"></svg>
+      <span class="lab" style="left:14px">Before</span><span class="lab" style="right:14px">After</span>
+      <div class="handle" id="handle"></div>
+      <input type="range" min="0" max="100" value="50" aria-label="Compare before and after" id="slider">
+    </div>
+  </div>
+</section>
+
+<section class="band" id="process">
+  <div class="wrap">
+    <div class="rv"><p class="kick">How it works</p><h2>No surprises, start to finish.</h2></div>
+    <ol class="steps">
+      <li class="rv"><b>Free inspection</b><p>We check the whole roof, attic side included when we can get in.</p></li>
+      <li class="rv"><b>Photos & estimate</b><p>You get photos of what we found and a written price before any work starts.</p></li>
+      <li class="rv"><b>The work</b><p>Our crew shows up when we said, protects your yard and gets it done.</p></li>
+      <li class="rv"><b>Clean-up & walkthrough</b><p>Magnet sweep for nails, debris hauled off, and we walk you through the finished job.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band mat" id="materials">
+  <div class="wrap">
+    <div class="rv"><p class="kick">Materials</p><h2>Pick what fits your home.</h2><p class="lead">Not sure which one? We'll walk you through the trade-offs during your inspection.</p></div>
+    <div class="tabs" role="tablist" aria-label="Roof materials">
+      <button class="tab" role="tab" aria-selected="true" data-p="m1">Asphalt shingle</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="m2">Concrete tile</button>
+      <button class="tab" role="tab" aria-selected="false" data-p="m3">Standing-seam metal</button>
+    </div>
+    <div class="mpanel on" id="m1"><div class="swatch"><svg viewBox="0 0 320 200" id="sw1"></svg></div><div><h3>Asphalt shingle</h3><ul><li>The most common choice for homes in the Valley</li><li>Lots of colors to match your house</li><li>Usually the most budget-friendly option</li></ul></div></div>
+    <div class="mpanel" id="m2"><div class="swatch"><svg viewBox="0 0 320 200" id="sw2"></svg></div><div><h3>Concrete tile</h3><ul><li>Heavy, long-lasting and handles heat well</li><li>That classic California look</li><li>Broken tiles can be swapped one at a time</li></ul></div></div>
+    <div class="mpanel" id="m3"><div class="swatch"><svg viewBox="0 0 320 200" id="sw3"></svg></div><div><h3>Standing-seam metal</h3><ul><li>Clean, modern lines</li><li>Sheds water and debris fast</li><li>Reflects summer heat</li></ul></div></div>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap area">
+    <div class="rv"><p class="kick">Service area</p><h2>Central Valley roofs.</h2><p class="lead">Not sure if you're in range? Text us your address.</p>
+      <ul class="towns"><li>Manteca</li><li>Lathrop</li><li>Ripon</li><li>Tracy</li><li>Stockton</li><li>Modesto</li><li>Escalon</li></ul></div>
+    <div class="rv">
+      <details open><summary>Is the inspection really free?</summary><p>Yes. We inspect the roof, take photos and give you a written estimate. You decide from there.</p></details>
+      <details><summary>Do I need a whole new roof?</summary><p>Often not. Many leaks are flashing or a small area. We'll tell you honestly if a repair will do.</p></details>
+      <details><summary>Can you help with insurance claims?</summary><p>We document storm damage with dated photos and notes you can send to your insurance company.</p></details>
+      <details><summary>How long does a replacement take?</summary><p>It depends on the size and material. We'll give you a timeline with your estimate.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="estimate">
+  <div class="wrap">
+    <div class="rv"><h2>Get your free inspection.</h2><p class="lead">Fill this out and it opens a text to us with your details ready to send. Or just call.</p><div class="ctas"><a class="btn" href="tel:+12095550148"><svg><use href="#ph"/></svg>(209) 555-0148</a></div></div>
+    <form class="box rv" id="est">
+      <h3>Text us your details</h3>
+      <label>What do you need?<select name="need"><option>Leak repair</option><option>Roof replacement</option><option>Storm damage</option><option>Gutters or flashing</option><option>Inspection</option></select></label>
+      <label>Your name<input name="name" autocomplete="name"></label>
+      <label>Address or cross streets<input name="addr" autocomplete="street-address"></label>
+      <a class="btn" id="send" href="sms:+12095550148">Open my text message</a>
+      <p class="hint">Opens your phone's text app with everything filled in. Nothing sends until you press send.</p>
+    </form>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><a class="logo" href="#top"><svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="10" fill="#2b2e31"/><path d="M8 30 24 14l16 16" fill="none" stroke="#d9542b" stroke-width="6" stroke-linejoin="round"/></svg><span><b>Ridgeline Roofing</b></span></a><span>(209) 555-0148 · Central Valley, CA</span><span>Website by Avyo (demo)</span></div></footer>
+<div class="sticky"><a class="btn" href="tel:+12095550148">Call now</a><a class="btn line" href="#estimate">Inspection</a></div>
+
+<script>
+{
+if (window.self !== window.top) document.getElementById('demo-bar').style.display = 'none';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.add('js');
+const NS = 'http://www.w3.org/2000/svg';
+/* hero shingles laid row by row */
+const g = document.getElementById('shingles');
+const rows = 7;
+for (let r = 0; r < rows; r++) {
+  const y = 112 + r * 22, half = 30 + r * 37, cx = 340;
+  for (let x = cx - half; x < cx + half; x += 34) {
+    const w = Math.min(34, cx + half - x);
+    const p = document.createElementNS(NS, 'rect');
+    p.setAttribute('x', x + (r % 2 ? 17 : 0) - 8); p.setAttribute('y', y); p.setAttribute('width', w); p.setAttribute('height', 22);
+    p.setAttribute('rx', 2); p.setAttribute('fill', r % 2 ? '#4a4f55' : '#565c63'); p.setAttribute('stroke', '#33373b'); p.setAttribute('stroke-width', 2);
+    p.setAttribute('class', 'sh'); p.style.animationDelay = (0.3 + r * 0.22 + (x - cx + half) / 1200) + 's';
+    g.appendChild(p);
+  }
+}
+const clip = document.createElementNS(NS, 'clipPath'); clip.id = 'roofclip';
+const cp = document.createElementNS(NS, 'path'); cp.setAttribute('d', 'M86 262 340 100l254 162z'); clip.appendChild(cp);
+g.parentNode.insertBefore(clip, g); g.setAttribute('clip-path', 'url(#roofclip)');
+/* before / after roofs */
+const roof = (svg, old) => {
+  let s = `<rect width="640" height="400" fill="${old ? '#c9d6de' : '#bfe3ff'}"/>`;
+  let seed = 7; const rnd = () => (seed = seed * 16807 % 2147483647) / 2147483647;
+  for (let r = 0; r < 12; r++) for (let c = 0; c < 14; c++) {
+    const x = c * 48 + (r % 2 ? 24 : 0) - 24, y = 30 + r * 30;
+    const tilt = old ? (rnd() - .5) * 14 : 0, miss = old && rnd() < .08;
+    const fill = old ? ['#6b6258', '#7a6f63', '#5d554c'][Math.floor(rnd() * 3)] : (r % 2 ? '#4a4f55' : '#565c63');
+    if (!miss) s += `<rect x="${x}" y="${y}" width="46" height="30" rx="2" fill="${fill}" stroke="${old ? '#4a433b' : '#33373b'}" stroke-width="2" transform="rotate(${tilt} ${x + 23} ${y + 15})"/>`;
+    else s += `<rect x="${x}" y="${y}" width="46" height="30" fill="#2a2420"/>`;
+  }
+  s += old ? '<path d="M0 392h640" stroke="#8a5a2b" stroke-width="16"/><path d="M200 392v-8M380 392v-10" stroke="#5b3a1a" stroke-width="6"/>' : '<path d="M0 392h640" stroke="#b8c0c8" stroke-width="16"/>';
+  svg.innerHTML = s;
+};
+roof(document.getElementById('before'), true); roof(document.getElementById('after'), false);
+const slider = document.getElementById('slider'), after = document.getElementById('after'), handle = document.getElementById('handle');
+const setCut = v => { after.style.clipPath = `inset(0 0 0 ${v}%)`; handle.style.left = v + '%'; };
+slider.addEventListener('input', () => setCut(slider.value));
+/* material swatches */
+const sw = (id, kind) => {
+  const el = document.getElementById(id); let s = '';
+  if (kind === 1) { s = '<rect width="320" height="200" fill="#3e4348"/>'; for (let r = 0; r < 8; r++) for (let c = 0; c < 9; c++) s += `<rect x="${c * 38 + (r % 2 ? 19 : 0) - 19}" y="${r * 26}" width="36" height="26" rx="2" fill="${['#4f555c', '#5a6067', '#474c52'][(r + c) % 3]}" stroke="#2f3337" stroke-width="2"/>`; }
+  if (kind === 2) { s = '<rect width="320" height="200" fill="#8a3a1f"/>'; for (let r = 0; r < 6; r++) for (let c = 0; c < 9; c++) s += `<path d="M${c * 38 - (r % 2 ? 19 : 0)} ${r * 36 + 36} q19 -40 38 0" fill="${['#b5532c', '#a84b27', '#c25d33'][(r + c) % 3]}" stroke="#6e2c15" stroke-width="2"/>`; }
+  if (kind === 3) { s = '<rect width="320" height="200" fill="#5d6b74"/>'; for (let c = 0; c < 9; c++) s += `<rect x="${c * 36}" y="0" width="36" height="200" fill="${c % 2 ? '#66757f' : '#6c7c86'}"/><rect x="${c * 36 + 33}" y="0" width="4" height="200" fill="#9aa8b1"/>`; }
+  el.innerHTML = s;
+};
+sw('sw1', 1); sw('sw2', 2); sw('sw3', 3);
+const tabs = [...document.querySelectorAll('.tab')];
+tabs.forEach(t => t.addEventListener('click', () => { tabs.forEach(x => { x.setAttribute('aria-selected', x === t); document.getElementById(x.dataset.p).classList.toggle('on', x === t); }); }));
+/* sms estimate */
+const form = document.getElementById('est'), send = document.getElementById('send');
+const sync = () => { const f = Object.fromEntries(new FormData(form)); const lines = ['Need: ' + f.need]; if (f.name.trim()) lines.push('Name: ' + f.name.trim()); if (f.addr.trim()) lines.push('Address: ' + f.addr.trim()); send.href = 'sms:+12095550148?&body=' + encodeURIComponent(lines.join('\n')); };
+form.addEventListener('input', sync); sync();
+/* reveal */
+if (reduce || !('IntersectionObserver' in window)) document.querySelectorAll('.rv').forEach(e => e.classList.add('in'));
+else { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 }); document.querySelectorAll('.rv').forEach(e => io.observe(e)); }
+}
+</script>
+</body>
+</html>

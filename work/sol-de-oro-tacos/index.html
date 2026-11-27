@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sol de Oro Tacos | Tacos, Burritos & Plates (Demo by Avyo)</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Demo website by Avyo for a made-up taqueria.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23e4322b'/%3E%3Ccircle cx='32' cy='32' r='16' fill='%23ffd23f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--sun:#ffd23f;--chile:#e4322b;--chile2:#c4241e;--lime:#1f8a4c;--ink:#1c1300;--cream:#fff7e0;--mute:#5e5440;--pad:max(5vw,18px)}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--cream);color:var(--ink);font:17px/1.6 Rubik,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Bungee,Impact,sans-serif;font-weight:400;line-height:.95;margin:0;text-transform:uppercase;text-wrap:balance}
+h1{font-size:clamp(54px,9vw,128px)}
+h2{font-size:clamp(40px,5.5vw,72px)}
+h3{font-size:22px;line-height:1.05}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+.band{padding:clamp(64px,8vw,110px) 0}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--mute);max-width:54ch;margin-top:18px;font-weight:500}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:14px;font:800 17px Rubik,sans-serif;text-decoration:none;border:3px solid var(--ink);background:var(--chile);color:#fff;cursor:pointer;box-shadow:5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+.btn.alt{background:#fff;color:var(--ink)}
+:focus-visible{outline:3px solid var(--lime);outline-offset:3px}
+.demo-bar{background:#0c1020;color:#fff;font:600 14px/1.4 Arial,sans-serif;text-align:center;padding:9px 16px}
+.demo-bar a{color:#9fb0ff;font-weight:700;margin-left:8px}
+.picado{height:46px;background:var(--cream);overflow:hidden;display:flex;justify-content:center;gap:4px;padding-top:4px;border-bottom:3px solid var(--ink)}
+.flag{width:48px;height:40px;flex:none;transform-origin:top;animation:wave 3s ease-in-out infinite;-webkit-mask:radial-gradient(circle at 50% 45%,transparent 5px,#000 6px) ;mask:radial-gradient(circle at 50% 45%,transparent 5px,#000 6px);clip-path:polygon(0 0,100% 0,100% 82%,85% 100%,70% 82%,50% 100%,30% 82%,15% 100%,0 82%)}
+@keyframes wave{50%{transform:rotate(4deg) skewX(3deg)}}
+header{position:sticky;top:0;z-index:30;background:var(--sun);border-bottom:3px solid var(--ink)}
+header .wrap{display:flex;align-items:center;gap:26px;height:74px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:400 24px Bungee,sans-serif}
+.logo svg{width:44px;height:44px}
+nav{margin-left:auto;display:flex;gap:24px;font-weight:800;font-size:16px}
+nav a{text-decoration:none}
+nav a:hover{color:var(--chile)}
+header .btn{min-height:46px;padding:0 18px;font-size:15px;box-shadow:3px 3px 0 var(--ink)}
+.count{display:inline-grid;place-items:center;min-width:24px;height:24px;border-radius:999px;background:#fff;color:var(--chile);font-size:13px;padding:0 6px}
+/* hero */
+.hero{background:var(--sun);position:relative;overflow:hidden;border-bottom:3px solid var(--ink)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:30px;align-items:center;padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(40px,6vw,80px);position:relative;z-index:1}
+.hero h1 span{color:var(--chile);display:block}
+.status{display:inline-flex;align-items:center;gap:10px;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:8px 16px;font-weight:800;font-size:15px;margin-bottom:22px}
+.status i{width:12px;height:12px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 rgba(31,138,76,.6);animation:ping 1.8s infinite}
+.status.closed i{background:var(--chile);animation:none}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(31,138,76,0)}}
+.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.rays{position:absolute;right:-18%;top:50%;width:min(900px,90vw);aspect-ratio:1;transform:translateY(-50%);border-radius:50%;background:repeating-conic-gradient(rgba(228,50,43,.13) 0 9deg,transparent 0 18deg);animation:spin 60s linear infinite}
+@keyframes spin{to{transform:translateY(-50%) rotate(1turn)}}
+.taco-art{position:relative}
+.taco-art svg{width:100%;height:auto;display:block}
+.steam{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;opacity:0;animation:steam 3s ease-in-out infinite}
+.steam:nth-of-type(2){animation-delay:1s}.steam:nth-of-type(3){animation-delay:2s}
+@keyframes steam{0%{opacity:0;transform:translateY(10px)}40%{opacity:.85}100%{opacity:0;transform:translateY(-30px)}}
+.bob{animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-1deg)}}
+.sticker{position:absolute;right:4%;top:6%;width:132px;height:132px;border-radius:50%;background:var(--chile);color:#fff;border:3px solid var(--ink);display:grid;place-items:center;text-align:center;font:400 17px/1.05 Bungee;transform:rotate(12deg);animation:wob 5s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(-6deg) scale(1.05)}}
+/* marquee */
+.marq{background:var(--chile);color:#fff;overflow:hidden;padding:16px 0;border-bottom:3px solid var(--ink)}
+.mtrack{display:flex;width:max-content;animation:m 30s linear infinite}
+.mtrack span{font:400 26px Bungee;padding:0 22px;white-space:nowrap}
+.mtrack span::after{content:"★";color:var(--sun);margin-left:44px}
+@keyframes m{to{transform:translateX(-50%)}}
+/* menu */
+.menu-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:end}
+.tabs{display:flex;flex-wrap:wrap;gap:10px}
+.tab{min-height:48px;padding:0 20px;border-radius:12px;border:3px solid var(--ink);background:#fff;font:800 16px Rubik;cursor:pointer;color:var(--ink)}
+.tab[aria-selected=true]{background:var(--ink);color:var(--sun)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:34px}
+.item{background:#fff;border:3px solid var(--ink);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px;box-shadow:6px 6px 0 var(--ink);animation:pop .4s both}
+@keyframes pop{from{opacity:0;transform:scale(.96)}}
+.item .top{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.item .pr{font:400 22px Bungee;color:var(--chile);white-space:nowrap}
+.item p{color:var(--mute);flex:1;font-size:15.5px}
+.item .tag{align-self:flex-start;font-size:12px;font-weight:800;background:var(--sun);border:2px solid var(--ink);border-radius:999px;padding:2px 10px}
+.add{margin-top:8px;min-height:46px;border-radius:10px;border:3px solid var(--ink);background:var(--lime);color:#fff;font:800 15px Rubik;cursor:pointer;transition:transform .15s}
+.add:hover{transform:translateY(-2px)}
+.add.done{background:var(--ink)}
+.sample{font-size:14px;color:var(--mute);margin-top:22px}
+/* order */
+.order{background:var(--ink);color:#fff}
+.order .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:46px;align-items:start}
+.order .lead{color:#d9cfb5}
+.ticket{background:var(--cream);color:var(--ink);border-radius:18px;padding:24px;border:3px solid var(--sun);position:relative}
+.ticket h3{margin-bottom:14px}
+.lines{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.lines li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:10px;align-items:center;border-bottom:2px dashed #d8c99f;padding-bottom:10px}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:34px;height:34px;border-radius:8px;border:2px solid var(--ink);background:#fff;font:800 18px Rubik;cursor:pointer;color:var(--ink)}
+.lines .p{font-weight:800;white-space:nowrap;min-width:64px;text-align:right}
+.empty{color:var(--mute)}
+.total{display:flex;justify-content:space-between;font:400 24px Bungee;margin-top:16px}
+.ticket label{display:grid;gap:6px;font-weight:700;margin-top:16px;font-size:15px}
+.ticket input,.ticket select{font:16px Rubik,sans-serif;min-height:50px;padding:0 14px;border:2px solid var(--ink);border-radius:10px;background:#fff;color:var(--ink)}
+.ticket .btn{width:100%;margin-top:18px}
+.ticket .hint{font-size:14px;color:var(--mute);margin-top:10px}
+/* visit */
+.visit .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:46px}
+.hours{width:100%;border-collapse:collapse;margin-top:16px;background:#fff;border:3px solid var(--ink);border-radius:14px;overflow:hidden}
+.hours td{padding:12px 16px;border-bottom:2px solid #f0e4c0;font-weight:500}
+.hours td:last-child{text-align:right;white-space:nowrap}
+.hours tr.today td{background:var(--sun);font-weight:800}
+.cater{background:var(--lime);color:#fff;border:3px solid var(--ink);border-radius:18px;padding:28px;box-shadow:6px 6px 0 var(--ink)}
+.cater p{margin-top:10px;color:#e3f5ea}
+.cater .btn{margin-top:20px;background:var(--sun);color:var(--ink)}
+details{border-bottom:3px solid var(--ink);padding:4px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:14px;padding:16px 0;font-weight:800;font-size:18px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:400 24px Bungee;color:var(--chile)}
+details[open] summary::after{content:"–"}
+details p{color:var(--mute);padding-bottom:16px}
+footer{background:var(--chile);color:#fff;border-top:3px solid var(--ink);padding:36px 0 110px;font-weight:600}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.sticky{display:none}
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.js .rv.in{opacity:1;transform:none}
+@media(max-width:980px){nav{display:none}header .btn{margin-left:auto}.hero .wrap,.order .wrap,.visit .wrap{grid-template-columns:minmax(0,1fr)}.taco-art{max-width:480px;margin:0 auto;width:100%}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.grid{grid-template-columns:minmax(0,1fr)}.sticker{width:100px;height:100px;font-size:13px}.logo span{font-size:20px}.sticky{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:10px 12px;background:var(--sun);border-top:3px solid var(--ink)}.sticky .btn{width:100%;min-height:52px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="demo-bar" id="demo-bar">Demo design by Avyo for a made-up business. Not a real restaurant.<a href="/" target="_top">Back to Avyo</a></div>
+<div class="picado" aria-hidden="true" id="picado"></div>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="21" fill="#e4322b" stroke="#1c1300" stroke-width="2"/><circle cx="22" cy="22" r="10" fill="#ffd23f"/></svg><span>Sol de Oro</span></a>
+    <nav aria-label="Main"><a href="#menu">Menu</a><a href="#order">Order</a><a href="#visit">Hours</a><a href="#catering">Catering</a></nav>
+    <a class="btn" href="#order">Order pickup <span class="count" id="hcount">0</span></a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="rays" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <span class="status" id="status"><i></i><span>Checking hours…</span></span>
+      <h1>Tacos worth <span>the drive.</span></h1>
+      <p class="lead">Al pastor shaved right off the trompo, birria with consommé, and handmade tortillas. Order ahead and skip the line.</p>
+      <div class="ctas"><a class="btn" href="#menu">See the menu</a><a class="btn alt" href="tel:+12095550163">Call (209) 555-0163</a></div>
+    </div>
+    <div class="taco-art">
+      <div class="sticker">Taco<br>Tuesday<br>$2</div>
+      <svg viewBox="0 0 460 380" aria-label="Illustration of three tacos">
+        <path class="steam" d="M150 120c-14-20 14-30 0-52"/>
+        <path class="steam" d="M230 100c-14-20 14-30 0-52"/>
+        <path class="steam" d="M310 120c-14-20 14-30 0-52"/>
+        <g class="bob">
+          <ellipse cx="230" cy="330" rx="190" ry="24" fill="#1c1300" opacity=".18"/>
+          <g id="tacos"></g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="mtrack" id="mtrack"></div></div>
+
+<section class="band" id="menu">
+  <div class="wrap">
+    <div class="menu-top rv">
+      <div><h2>The menu</h2><p class="lead">Tap "Add" to build your pickup order.</p></div>
+      <div class="tabs" role="tablist" aria-label="Menu sections" id="tabs"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="sample">Sample menu and prices for this demo site.</p>
+  </div>
+</section>
+
+<section class="band order" id="order">
+  <div class="wrap">
+    <div class="rv">
+      <h2 style="color:var(--sun)">Order ahead</h2>
+      <p class="lead">Build your order, pick a time, and it opens a text to us with everything filled in. We'll text back when it's ready.</p>
+    </div>
+    <div class="ticket rv">
+      <h3>Your order</h3>
+      <ul class="lines" id="lines"></ul>
+      <div class="total"><span>Total</span><span id="total">$0.00</span></div>
+      <label>Your name<input id="oname" autocomplete="name"></label>
+      <label>Pickup time<select id="otime"><option>As soon as possible</option><option>In 30 minutes</option><option>In 1 hour</option></select></label>
+      <a class="btn" id="osend" href="sms:+12095550163">Text my order</a>
+      <p class="hint">Nothing sends until you press send in your text app. Pay at pickup.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band visit" id="visit">
+  <div class="wrap">
+    <div class="rv">
+      <h2>Hours</h2>
+      <p class="lead">Central Valley, CA. Open late on weekends.</p>
+      <table class="hours" id="hours"><tbody></tbody></table>
+    </div>
+    <div class="rv" id="catering">
+      <div class="cater"><h3>Catering & taco bars</h3><p>Birthdays, work lunches, quinceañeras. Tell us how many people and we'll put together a taco bar.</p><a class="btn" href="sms:+12095550163?&body=Hi%2C%20I%27d%20like%20catering%20for%20">Text about catering</a></div>
+      <div style="margin-top:26px">
+        <details open><summary>Do you take cards?</summary><p>Yes. Cards, cash, Apple Pay and Google Pay.</p></details>
+        <details><summary>Do you have vegetarian options?</summary><p>Yes. Try the rajas con queso tacos or the bean and cheese burrito.</p></details>
+        <details><summary>Is there parking?</summary><p>Free parking right out front.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap"><span style="font:400 22px Bungee">Sol de Oro</span><span>(209) 555-0163 · Central Valley, CA</span><span>Website by Avyo (demo)</span></div></footer>
+<div class="sticky"><a class="btn" href="#order">View order · <span id="scount">0 items</span></a></div>
+
+<script>
+{
+if (window.self !== window.top) document.getElementById('demo-bar').style.display = 'none';
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.documentElement.classList.add('js');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* papel picado */
+const pc = ['#e4322b', '#1f8a4c', '#ffd23f', '#e85d9e', '#2f7fd8'];
+document.getElementById('picado').innerHTML = Array.from({ length: 40 }, (_, i) => `<span class="flag" style="background:${pc[i % 5]};animation-delay:${-i * .2}s"></span>`).join('');
+/* tacos */
+const taco = (x, y, s, meat) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-80 40 A80 80 0 0 1 80 40 Z" fill="#f2c063" stroke="#1c1300" stroke-width="5"/><path d="M-70 36 q20-38 70-42 q50 4 70 42" fill="${meat}" stroke="#1c1300" stroke-width="4"/><circle cx="-34" cy="8" r="7" fill="#2fa25a"/><circle cx="-6" cy="-2" r="7" fill="#fff" stroke="#1c1300" stroke-width="2"/><circle cx="24" cy="6" r="7" fill="#2fa25a"/><circle cx="44" cy="20" r="6" fill="#e4322b"/><path d="M-80 40 A80 80 0 0 1 80 40" fill="none" stroke="#d99a2b" stroke-width="10" opacity=".5"/></g>`;
+document.getElementById('tacos').innerHTML = taco(120, 230, 1, '#b5542a') + taco(340, 230, 1, '#7a3d1f') + taco(230, 270, 1.15, '#c9682f');
+/* marquee */
+const words = ['Al pastor', 'Birria', 'Carne asada', 'Handmade tortillas', 'Horchata', 'Open late'];
+const half = words.map(w => `<span>${w}</span>`).join('');
+document.getElementById('mtrack').innerHTML = half + half;
+/* menu */
+const menu = {
+  Tacos: [['Al pastor', 3.25, 'Marinated pork off the trompo, pineapple, onion and cilantro.', 'Most ordered'], ['Carne asada', 3.5, 'Grilled steak, onion, cilantro and salsa verde.'], ['Birria', 4, 'Slow-braised beef with cheese and a cup of consommé.', 'Weekends'], ['Pollo asado', 3, 'Charred chicken with avocado salsa.'], ['Rajas con queso', 3, 'Roasted poblano strips with melted cheese.', 'Vegetarian'], ['Camarón', 4.25, 'Chile-lime shrimp with cabbage slaw.']],
+  Burritos: [['Asada burrito', 12, 'Steak, rice, beans, pico and guacamole.'], ['California burrito', 13, 'Carne asada, fries, cheese and sour cream.', 'Local favorite'], ['Bean & cheese', 8, 'Simple and classic.', 'Vegetarian']],
+  Plates: [['Taco plate', 14, 'Three tacos with rice and beans.'], ['Birria plate', 16, 'Birria, consommé, rice, beans and tortillas.'], ['Enchiladas rojas', 13, 'Three cheese enchiladas with red sauce.']],
+  Drinks: [['Horchata', 4, 'House-made, cinnamon and rice.'], ['Agua de jamaica', 4, 'Hibiscus, lightly sweet.'], ['Mexican Coke', 3.5, 'Glass bottle.']]
+};
+const cart = {};
+const money = n => '$' + n.toFixed(2);
+const tabs = document.getElementById('tabs'), grid = document.getElementById('grid');
+const findItem = name => { for (const l of Object.values(menu)) for (const m of l) if (m[0] === name) return m; };
+const show = cat => {
+  [...tabs.children].forEach(b => b.setAttribute('aria-selected', b.textContent === cat));
+  grid.innerHTML = menu[cat].map((m, i) => `<div class="item" style="animation-delay:${i * .05}s"><div class="top"><h3>${esc(m[0])}</h3><span class="pr">${money(m[1])}</span></div>${m[3] ? `<span class="tag">${esc(m[3])}</span>` : ''}<p>${esc(m[2])}</p><button class="add" type="button" data-n="${esc(m[0])}">Add to order</button></div>`).join('');
+  grid.querySelectorAll('.add').forEach(b => b.addEventListener('click', () => { cart[b.dataset.n] = (cart[b.dataset.n] || 0) + 1; b.textContent = 'Added ✓'; b.classList.add('done'); setTimeout(() => { b.textContent = 'Add another'; b.classList.remove('done'); }, 900); draw(); }));
+};
+tabs.innerHTML = Object.keys(menu).map(c => `<button class="tab" role="tab">${c}</button>`).join('');
+[...tabs.children].forEach(b => b.addEventListener('click', () => show(b.textContent)));
+show('Tacos');
+/* order ticket */
+const lines = document.getElementById('lines'), total = document.getElementById('total'), osend = document.getElementById('osend'), oname = document.getElementById('oname'), otime = document.getElementById('otime');
+const draw = () => {
+  const keys = Object.keys(cart).filter(k => cart[k] > 0);
+  let t = 0, n = 0;
+  lines.innerHTML = keys.length ? keys.map(k => { const m = findItem(k); t += m[1] * cart[k]; n += cart[k]; return `<li><span>${esc(k)}</span><span class="qty"><button type="button" data-k="${esc(k)}" data-d="-1" aria-label="One less ${esc(k)}">−</button>${cart[k]}<button type="button" data-k="${esc(k)}" data-d="1" aria-label="One more ${esc(k)}">+</button></span><span class="p">${money(m[1] * cart[k])}</span></li>`; }).join('') : '<li class="empty">Nothing yet. Add something from the menu.</li>';
+  lines.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { cart[b.dataset.k] = Math.max(0, cart[b.dataset.k] + +b.dataset.d); draw(); }));
+  total.textContent = money(t);
+  document.getElementById('hcount').textContent = n;
+  document.getElementById('scount').textContent = n + (n === 1 ? ' item' : ' items');
+  const body = ['Pickup order' + (oname.value.trim() ? ' for ' + oname.value.trim() : '') + ':', ...keys.map(k => cart[k] + ' x ' + k), 'Total: ' + money(t), 'Pickup: ' + otime.value];
+  osend.href = 'sms:+12095550163?&body=' + encodeURIComponent(body.join('\n'));
+};
+oname.addEventListener('input', draw); otime.addEventListener('change', draw);
+draw();
+/* hours + open status */
+const hrs = [['Sunday', 9, 20], ['Monday', 10, 21], ['Tuesday', 10, 21], ['Wednesday', 10, 21], ['Thursday', 10, 21], ['Friday', 10, 24], ['Saturday', 9, 24]];
+const fmt = h => h === 24 ? 'Midnight' : (h % 12 || 12) + (h < 12 ? ' AM' : ' PM');
+const now = new Date(), d = now.getDay(), hr = now.getHours() + now.getMinutes() / 60;
+document.querySelector('#hours tbody').innerHTML = hrs.map((h, i) => `<tr class="${i === d ? 'today' : ''}"><td>${h[0]}${i === d ? ' (today)' : ''}</td><td>${fmt(h[1])} – ${fmt(h[2])}</td></tr>`).join('');
+const open = hr >= hrs[d][1] && hr < hrs[d][2], st = document.getElementById('status');
+st.classList.toggle('closed', !open);
+st.querySelector('span').textContent = open ? 'Open now until ' + fmt(hrs[d][2]) : 'Closed now · Opens ' + fmt(hrs[(hr >= hrs[d][2] ? (d + 1) % 7 : d)][1]);
+/* reveal */
+if (reduce || !('IntersectionObserver' in window)) document.querySelectorAll('.rv').forEach(e => e.classList.add('in'));
+else { const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 }); document.querySelectorAll('.rv').forEach(e => io.observe(e)); }
+}
+</script>
+</body>
+</html>
